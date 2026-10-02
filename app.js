@@ -127,6 +127,65 @@
     dimsEl.textContent = w.length + " long · " + w.weight;
   }
 
+  // ---- Watch him grow: pregnancy timeline ----
+  function renderTimeline() {
+    var r = window.REGISTRY || {};
+    var sizes = window.WEEK_SIZES || [];
+    var list = document.getElementById("growTimeline");
+    if (!r.dueDate || !list) return;
+    var due = new Date(r.dueDate + "T00:00:00");
+    // gestational age: 280 days before the due date is day 0
+    var conception = new Date(due.getTime() - 280 * 86400000);
+    var now = new Date();
+    var todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var baby = r.babyName ? r.babyName.split(" ")[0] : "Baby";
+
+    function sizeFor(week) {
+      var w = sizes.filter(function (s) { return s.week === Math.min(week, 42); })[0];
+      return w ? w.size : "a tiny miracle";
+    }
+    function weekOf(d) { return Math.floor((d - conception) / (7 * 86400000)); }
+    function fmt(d) { return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); }
+    function key(d) {
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    }
+
+    var milestones = [
+      { date: "2026-05-10", title: "We found out",
+        note: "Two pink lines on a Sunday morning. Back then " + baby + " was no bigger than " + sizeFor(5) + "." },
+      { date: "2026-07-04", title: "First trimester, done",
+        note: "The delicate early weeks behind us; " + baby + " was the size of " + sizeFor(13) + "." },
+      { date: "2026-08-22", title: "Halfway there",
+        note: "Twenty weeks in, the size of " + sizeFor(20) + ", and already making his presence felt." },
+      { date: "2026-09-19", title: "Viability milestone",
+        note: "The size of " + sizeFor(24) + ". Every week from here counts double." },
+      { date: "2026-10-17", title: "Third trimester begins",
+        note: "The home stretch. He'll be the size of " + sizeFor(28) + "." },
+      { date: r.dueDate, title: "Due date",
+        note: "We finally get to meet " + baby + ", all " + sizeFor(40) + "-sized and wonderful." }
+    ];
+    milestones.push({ date: key(todayStart), today: true, title: "You are here",
+      note: "Right now, " + baby + " is about the size of " + sizeFor(weekOf(todayStart)) + "." });
+    milestones.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+
+    list.innerHTML = "";
+    milestones.forEach(function (m) {
+      var d = new Date(m.date + "T00:00:00");
+      var status = m.today ? "today" : (d < todayStart ? "past" : "future");
+      var li = document.createElement("li");
+      li.className = "tl-item " + status;
+      li.innerHTML =
+        '<span class="tl-dot" aria-hidden="true"></span>' +
+        '<div class="tl-card">' +
+          '<div class="tl-meta"><span class="tl-date">' + esc(m.today ? "Today" : fmt(d)) + "</span>" +
+          '<span class="tl-week">Week ' + weekOf(d) + "</span></div>" +
+          "<h4>" + esc(m.title) + "</h4>" +
+          "<p>" + esc(m.note) + "</p>" +
+        "</div>";
+      list.appendChild(li);
+    });
+  }
+
   // ---- Filters ----
   var CATEGORIES = ["All", "Travel", "Nursery", "Feeding", "Diapering", "Bath & Health", "Clothing", "Play", "Gift Cards"];
 
@@ -439,6 +498,7 @@
   buildChips();
   render();
   renderGrowth();
+  renderTimeline();
   loadSheetClaims();
   tickCountdown();
   setInterval(tickCountdown, 1000);
