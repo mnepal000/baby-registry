@@ -160,20 +160,22 @@
 
     var milestones = [
       { date: "2026-05-10", title: "We found out",
-        note: "Two pink lines on a Sunday morning. Back then " + baby + " was no bigger than " + sizeFor(5) + "." },
+        note: "Two pink lines on a Sunday morning. " + baby + " was the size of " + sizeFor(5) + " and already running the household." },
+      { date: "2026-05-19", title: "First sonogram",
+        note: "We heard the heartbeat for the first time. It sounded like a tiny drum solo, and we both pretended not to tear up." },
       { date: "2026-07-04", title: "First trimester, done",
-        note: "The delicate early weeks behind us; " + baby + " was the size of " + sizeFor(13) + "." },
+        note: "The queasy weeks are behind us. " + baby + " is the size of " + sizeFor(13) + " and has started rehearsing his dance moves." },
       { date: "2026-08-22", title: "Halfway there",
-        note: "Twenty weeks in, the size of " + sizeFor(20) + ", and already making his presence felt." },
+        note: "Twenty weeks in and the size of " + sizeFor(20) + ", with kicks strong enough to register on the Richter scale." },
       { date: "2026-09-19", title: "Viability milestone",
-        note: "The size of " + sizeFor(24) + ". Every week from here counts double." },
+        note: "The size of " + sizeFor(24) + ". Every week from here counts double, and the nursery inspiration folder is officially out of control." },
       { date: "2026-10-17", title: "Third trimester begins",
-        note: "The home stretch. He'll be the size of " + sizeFor(28) + "." },
+        note: "The home stretch. He'll be the size of " + sizeFor(28) + " and napping on his own schedule, which is to say, never on ours." },
       { date: r.dueDate, title: "Due date",
-        note: "We finally get to meet " + baby + ", all " + sizeFor(40) + "-sized and wonderful." }
+        note: "We finally meet " + baby + ", all " + sizeFor(40) + "-sized and wonderful. Worth every 3 a.m. dress rehearsal." }
     ];
     milestones.push({ date: key(todayStart), today: true, title: "You are here",
-      note: "Right now, " + baby + " is about the size of " + sizeFor(weekOf(todayStart)) + "." });
+      note: "Right now, " + baby + " is about the size of " + sizeFor(weekOf(todayStart)) + " and practicing his boxing combinations daily." });
     milestones.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
 
     list.innerHTML = "";
