@@ -7,7 +7,7 @@ var REGISTRY = {
   dueDate: "2027-01-09",
   dueMonthLabel: "January 2027",
   contactEmail: "hellomuku@gmail.com",
-  babylistUrl: "", // paste your Babylist registry URL here when ready; the banner appears automatically
+  babylistUrl: "https://my.babylist.com/bini-bhattarai", // Babylist registry; the banner appears automatically
 };
 
 // Purchase-claim settings. Until these are filled in (see GOOGLE_SHEETS_SETUP.md),
@@ -152,6 +152,18 @@ var ITEMS = [
     url: "https://www.babylist.com/gp/philips-avent-natural-baby-bottle-newborn-starter-gift-set/24134/1006494",
     img: "assets/img/avent-bottles.jpg",
     blurb: "Newborn starter set with anti-colic nipples, easy to clean and assemble.",
+  },
+  {
+    id: "avent-nipples",
+    name: "Philips Avent Natural Response Nipples, Flow 1 (4-Pack)",
+    brand: "Philips AVENT",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$13.26",
+    store: "Amazon",
+    url: "https://www.amazon.com/dp/B0F452HXC2",
+    img: "assets/img/avent-nipples.jpg",
+    blurb: "Extra-slow-flow replacement nipples for the newborn bottles, for paced, breast-like feeding.",
   },
   {
     id: "graco-highchair",
