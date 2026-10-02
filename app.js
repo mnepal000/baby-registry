@@ -91,6 +91,15 @@
     if (el) el.textContent = v;
   }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
+  // Parse "YYYY-MM-DD" as UTC midnight so week math never trips on DST shifts.
+  function parseDay(s) {
+    var p = s.split("-");
+    return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]));
+  }
+  function todayUTC() {
+    var n = new Date();
+    return new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate()));
+  }
 
   // ---- Watch him grow: gestational week from the due date ----
   function renderGrowth() {
@@ -100,13 +109,13 @@
     var baby = r.babyName ? r.babyName.split(" ")[0] : "Baby";
     setText("growTitle", baby + " is growing");
 
-    var due = new Date(r.dueDate + "T00:00:00");
-    var now = new Date();
+    var due = parseDay(r.dueDate);
+    var today = todayUTC();
     var textEl = document.getElementById("growText");
     var dimsEl = document.getElementById("growDims");
     var emojiEl = document.getElementById("growEmoji");
 
-    if (now >= due) {
+    if (today >= due) {
       emojiEl.textContent = "💛";
       textEl.innerHTML = "<strong>" + esc(baby) + "</strong> should be here any day now. Welcome, little one!";
       dimsEl.textContent = "";
@@ -114,7 +123,7 @@
     }
     // gestational age: 280 days before the due date is day 0
     var conception = new Date(due.getTime() - 280 * 86400000);
-    var week = Math.floor((now - conception) / (7 * 86400000));
+    var week = Math.floor((today - conception) / (7 * 86400000));
     if (week < 4) {
       emojiEl.textContent = "✨";
       textEl.innerHTML = "The journey has just begun. <strong>" + esc(baby) + "</strong> is on the way!";
@@ -133,11 +142,10 @@
     var sizes = window.WEEK_SIZES || [];
     var list = document.getElementById("growTimeline");
     if (!r.dueDate || !list) return;
-    var due = new Date(r.dueDate + "T00:00:00");
+    var due = parseDay(r.dueDate);
     // gestational age: 280 days before the due date is day 0
     var conception = new Date(due.getTime() - 280 * 86400000);
-    var now = new Date();
-    var todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var todayStart = todayUTC();
     var baby = r.babyName ? r.babyName.split(" ")[0] : "Baby";
 
     function sizeFor(week) {
@@ -145,9 +153,9 @@
       return w ? w.size : "a tiny miracle";
     }
     function weekOf(d) { return Math.floor((d - conception) / (7 * 86400000)); }
-    function fmt(d) { return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); }
+    function fmt(d) { return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }); }
     function key(d) {
-      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      return d.getUTCFullYear() + "-" + String(d.getUTCMonth() + 1).padStart(2, "0") + "-" + String(d.getUTCDate()).padStart(2, "0");
     }
 
     var milestones = [
@@ -170,7 +178,7 @@
 
     list.innerHTML = "";
     milestones.forEach(function (m) {
-      var d = new Date(m.date + "T00:00:00");
+      var d = parseDay(m.date);
       var status = m.today ? "today" : (d < todayStart ? "past" : "future");
       var li = document.createElement("li");
       li.className = "tl-item " + status;
