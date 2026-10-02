@@ -1,7 +1,7 @@
 // Baby registry data. Edit freely: add, remove, or change items here.
 // Prices were checked on 2026-10-01 and may change at the store.
 
-const REGISTRY = {
+var REGISTRY = {
   babyName: "Vyom Nepal",
   familyName: "The Nepal Family",
   dueDate: "2027-01-09",
@@ -9,7 +9,7 @@ const REGISTRY = {
   contactEmail: "hellomuku@gmail.com",
 };
 
-const ITEMS = [
+var ITEMS = [
   {
     id: "bravo-trio",
     name: "Chicco - Bravo Trio Travel System Camden",
