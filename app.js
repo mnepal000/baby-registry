@@ -413,7 +413,25 @@
     var items = (window.ITEMS || []).filter(matches);
     document.getElementById("emptyMsg").hidden = items.length > 0;
     grid.innerHTML = "";
-    items.forEach(function (item) {
+    if (state.category === "All") {
+      // grouped by category in chip order, so Gift Cards always lands at the bottom
+      CATEGORIES.forEach(function (c) {
+        if (c === "All") return;
+        var group = items.filter(function (i) { return i.category === c; });
+        if (!group.length) return;
+        var h = document.createElement("h3");
+        h.className = "group-title";
+        h.textContent = c;
+        grid.appendChild(h);
+        group.forEach(function (item) { grid.appendChild(buildCard(item)); });
+      });
+    } else {
+      items.forEach(function (item) { grid.appendChild(buildCard(item)); });
+    }
+    updateProgress();
+  }
+
+  function buildCard(item) {
       var isGiftCard = !!item.giftCard;
       var found = isGiftCard ? null : getClaim(item.id);
       var claimed = !!found;
@@ -475,9 +493,7 @@
           openClaimModal(item);
         });
       }
-      grid.appendChild(card);
-    });
-    updateProgress();
+      return card;
   }
 
   function updateProgress() {

@@ -150,6 +150,12 @@ h2 { font-size: 1.7rem; margin: 0 0 8px; }
 
 /* Item grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; }
+.group-title {
+  grid-column: 1 / -1; font-size: 1.35rem; margin: 26px 0 2px;
+  display: flex; align-items: center; gap: 14px;
+}
+.group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.grid > .group-title:first-child { margin-top: 0; }
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
