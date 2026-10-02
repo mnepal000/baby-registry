@@ -137,7 +137,7 @@ var ITEMS = [
     priority: "must", // "must" or "nice"
     price: "$49.99",
     store: "Babylist",
-    url: "https://www.babylist.com/gp/boppy-nursing-pillow/70620/2351358",
+    url: "https://www.babylist.com/ggp/boppy-nursing-pillow/70620/2351358?reg_item_id=893744916&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/boppy.jpg",
     blurb: "The classic nursing pillow: supportive positioning for feeding time.",
   },
@@ -149,7 +149,7 @@ var ITEMS = [
     priority: "must", // "must" or "nice"
     price: "$48.19",
     store: "Babylist",
-    url: "https://www.babylist.com/gp/philips-avent-natural-baby-bottle-newborn-starter-gift-set/24134/1006494",
+    url: "https://www.babylist.com/ggp/philips-avent-natural-baby-bottle-newborn-starter-gift-set/24134/1006494?reg_item_id=893744974&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/avent-bottles.jpg",
     blurb: "Newborn starter set with anti-colic nipples, easy to clean and assemble.",
   },
@@ -160,8 +160,8 @@ var ITEMS = [
     category: "Feeding",
     priority: "nice", // "must" or "nice"
     price: "$13.26",
-    store: "Amazon",
-    url: "https://www.amazon.com/dp/B0F452HXC2",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/philips-avent-natural-response-nipples-4-pack/75193/2565045?reg_item_id=883524584&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/avent-nipples.jpg",
     blurb: "Extra-slow-flow replacement nipples for the newborn bottles, for paced, breast-like feeding.",
   },
@@ -172,8 +172,8 @@ var ITEMS = [
     category: "Feeding",
     priority: "nice", // "must" or "nice"
     price: "$99.99",
-    store: "Graco",
-    url: "https://www.gracobaby.com/shop/home-and-gear/high-chairs/ready2dine-4-in-1-highchair/SAP_2224047.html",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/graco-ready2dine-dlx-highchair/80440/2902996?reg_item_id=893745201&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/graco-highchair.jpg",
     blurb: "Grows from infant recline to toddler booster, one chair for every stage.",
   },
@@ -233,7 +233,7 @@ var ITEMS = [
     priority: "nice", // "must" or "nice"
     price: "$29.95",
     store: "Babylist",
-    url: "https://www.babylist.com/gp/burt-s-bees-baby-organic-hooded-towels-2-pack/14450/230642",
+    url: "https://www.babylist.com/ggp/burt-s-bees-baby-organic-hooded-towels-2-pack/14450/230642?reg_item_id=893745886&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/burts-towels.jpg",
     blurb: "Organic cotton hooded towels, soft and absorbent after bath time.",
   },
@@ -244,8 +244,8 @@ var ITEMS = [
     category: "Bath & Health",
     priority: "must", // "must" or "nice"
     price: "$31.99",
-    store: "Target",
-    url: "https://www.target.com/p/frida-baby-3-in-1-ear-and-forehead-infrared-thermometer/-/A-80562700",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/fridababy-3-in-1-ear-forehead-touchless-infrared-thermometer/41460/1601646?reg_item_id=893746030&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/frida-thermometer.jpg",
     blurb: "Quick ear, forehead, and touchless readings for middle-of-the-night checks.",
   },
@@ -292,8 +292,8 @@ var ITEMS = [
     category: "Nursery",
     priority: "must", // "must" or "nice"
     price: "$349",
-    store: "Target",
-    url: "https://www.target.com/p/davinci-piper-recliner-and-swivel-glider-pine-green/-/A-1007124742",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/davinci-piper-recliner/15778/1935951?reg_item_id=893746484&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/nursing-glider.jpg",
     blurb: "A proper reclining glider for late-night feeds, with smooth swivel and lumbar support.",
   },
@@ -329,7 +329,7 @@ var ITEMS = [
     priority: "nice", // "must" or "nice"
     price: "$299.99",
     store: "Babylist",
-    url: "https://www.babylist.com/gp/momcozy-kleanpal-pro-baby-bottle-washer-and-sterilizer-1730408600/66759/2233069",
+    url: "https://www.babylist.com/ggp/momcozy-kleanpal-pro-baby-bottle-washer-and-sterilizer-1730408600/66759/2233069?reg_item_id=893746806&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/bottle-washer.jpg",
     blurb: "Washes, sterilizes, and dries bottles and pump parts in one go, a real time saver.",
   },
@@ -437,7 +437,7 @@ var ITEMS = [
     priority: "must", // "must" or "nice"
     price: "$34.95",
     store: "Babylist",
-    url: "https://www.babylist.com/gp/halo-sleepsack-swaddle-cotton/2204/1699370",
+    url: "https://www.babylist.com/ggp/halo-sleepsack-swaddle-cotton/2204/1699370?reg_item_id=893747806&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/halo-sleepsack.jpg",
     blurb: "A wearable blanket that keeps Vyom snug and safe without loose blankets in the bed.",
   },
