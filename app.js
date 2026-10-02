@@ -57,6 +57,15 @@
       ce.textContent = r.contactEmail;
       ce.href = "mailto:" + r.contactEmail;
     }
+    var bb = document.getElementById("babylistBanner");
+    if (bb) {
+      if (r.babylistUrl) {
+        bb.hidden = false;
+        document.getElementById("babylistBtn").href = r.babylistUrl;
+      } else {
+        bb.hidden = true;
+      }
+    }
     if (r.babyName) document.title = r.babyName + " is on the way | Our Baby Registry";
   }
 

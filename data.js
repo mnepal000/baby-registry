@@ -7,6 +7,7 @@ var REGISTRY = {
   dueDate: "2027-01-09",
   dueMonthLabel: "January 2027",
   contactEmail: "hellomuku@gmail.com",
+  babylistUrl: "", // paste your Babylist registry URL here when ready; the banner appears automatically
 };
 
 // Purchase-claim settings. Until these are filled in (see GOOGLE_SHEETS_SETUP.md),

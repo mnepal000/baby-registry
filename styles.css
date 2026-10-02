@@ -105,6 +105,16 @@ h2 { font-size: 1.7rem; margin: 0 0 8px; }
 .section-sub { color: var(--ink-soft); margin: 0 0 24px; }
 .signature { font-style: italic; color: var(--ink-soft); }
 
+/* Babylist banner */
+.babylist-banner {
+  padding: 60px 0; text-align: center;
+  background: linear-gradient(135deg, #E7EDDA 0%, #FDEBD3 100%);
+  border-bottom: 1px solid var(--line);
+}
+.babylist-inner h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 3.5vw, 2rem); }
+.babylist-inner p { color: var(--ink-soft); margin: 0 0 22px; }
+.babylist-banner[hidden] { display: none; }
+
 /* Progress */
 .progress-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); margin-bottom: 24px; }
 .progress-meta { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 10px; }
