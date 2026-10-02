@@ -9,6 +9,21 @@ var REGISTRY = {
   contactEmail: "hellomuku@gmail.com",
 };
 
+// Purchase-claim settings. Until these are filled in (see GOOGLE_SHEETS_SETUP.md),
+// claims are saved in each visitor's own browser. Once connected, claims are shared
+// with every visitor via the published sheet CSV.
+var CLAIM_CONFIG = {
+  formUrl: "",   // e.g. "https://docs.google.com/forms/d/e/XXXX/formResponse"
+  entryIds: {
+    itemId: "",  // Google Form entry id for the hidden item id
+    name: "",    // entry id for buyer name
+    platform: "",// entry id for store/platform
+    order: "",   // entry id for order number (optional field)
+    message: ""  // entry id for message to parents (optional field)
+  },
+  sheetCsvUrl: "" // published CSV link of the Form's response sheet
+};
+
 var ITEMS = [
   {
     id: "bravo-trio",

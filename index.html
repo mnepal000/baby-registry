@@ -85,7 +85,7 @@
       <ol class="steps">
         <li><strong>Pick a gift</strong> from the registry above, something you would love to give.</li>
         <li><strong>Buy it</strong> through the store link on the card. Prices were checked when the list was made and may have changed slightly.</li>
-        <li><strong>Mark it as purchased</strong> with the button on the card, so other gifters know it is taken care of.</li>
+        <li><strong>Mark it as purchased</strong> with the button on the card, and add your name, where you bought it, and an optional message, so other gifters can see it is taken care of and we know who to thank.</li>
       </ol>
       <p class="fine-print">Purchased marks are saved in your own browser. If you grab one of the bigger gifts, do drop us a quick email too, so we can say thank you properly.</p>
     </div>
@@ -137,6 +137,10 @@
         <summary>Can a few of us go in together on a bigger gift?</summary>
         <p>Absolutely, we love that idea. Just mark it as purchased once it is sorted so nobody duplicates it.</p>
       </details>
+      <details>
+        <summary>Who can see my purchase details?</summary>
+        <p>Your name, where you bought the gift, and your message appear on the registry so nobody buys the same thing twice. The order number is optional, share one only if you are comfortable with it being visible.</p>
+      </details>
       <p class="contact">Still unsure? Email us at <a id="contactEmail" href="mailto:hellomuku@gmail.com">hellomuku@gmail.com</a>.</p>
     </div>
   </section>
@@ -148,6 +152,13 @@
     <p>Made with love for <span id="footBaby">Baby Nepal</span>, arriving <span id="footMonth">January 2027</span> 💛</p>
   </div>
 </footer>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
 
 <script src="data.js"></script>
 <script src="app.js"></script>
