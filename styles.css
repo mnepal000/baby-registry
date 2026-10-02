@@ -75,9 +75,7 @@ body {
 
 /* Watch him grow */
 .growing { padding: 72px 0; background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.growing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.growing-inner > * { min-width: 0; }
-.growing-art { width: 100%; border-radius: 24px; box-shadow: var(--shadow); }
+.growing-lead .growing-card { text-align: center; }
 .growing-card h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 8px; }
 .grow-emoji { font-size: 4.2rem; margin: 12px 0 4px; animation: floaty 4s ease-in-out infinite; }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -85,7 +83,6 @@ body {
 .grow-text strong { color: var(--terra-dark); }
 .grow-dims { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
 @media (max-width: 760px) {
-  .growing-inner { grid-template-columns: 1fr; gap: 28px; }
   .growing-card { text-align: center; }
 }
 .btn {
