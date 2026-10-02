@@ -118,18 +118,6 @@ var ITEMS = [
     blurb: "Soft, breathable muslin blankets for swaddling, burping, and everything in between.",
   },
   {
-    id: "spectra-s1",
-    name: "S1 Hospital Grade Double Electric Breast Pump With Rechargeable Battery",
-    brand: null,
-    category: "Feeding",
-    priority: "must", // "must" or "nice"
-    price: "$216",
-    store: "Anawiz",
-    url: "https://www.anawiz.com/products/spectra-s1-hospital-grade-double-electric-breast-pump-with-rechargeable-battery-sps100?variant=32129930428548",
-    img: "assets/img/spectra-s1.jpg",
-    blurb: "Hospital-grade double electric pump with a rechargeable battery for pumping anywhere.",
-  },
-  {
     id: "boppy",
     name: "Boppy Nursing Pillow in Green Animal Sketches | 100% Polyester",
     brand: "Boppy",
@@ -188,18 +176,6 @@ var ITEMS = [
     url: "https://www.albeebaby.com/products/ubbi-diaper-pail-grey?variant=49935523315943",
     img: "assets/img/ubbi-pail.jpg",
     blurb: "Steel body locks in odors and uses regular trash bags, no pricey refills.",
-  },
-  {
-    id: "huggies-wipes",
-    name: "Huggies Natural Care Refreshing Baby Wipes - Scented, 17 Pack/1088 ct",
-    brand: "Huggies",
-    category: "Diapering",
-    priority: "must", // "must" or "nice"
-    price: "$26.99",
-    store: "BJ's Wholesale Club",
-    url: "https://www.bjs.com/product/huggies-natural-care-refreshing-baby-wipes---scented-17-pk1088-ct/3000000000002312253/?trc=pdso%7Cfbad%7Cdpa%7Comni%7Coeg%7Cbaby%7Cfb_%7B%7Bcampaign.id%7D%7D_%7B%7Badset.id%7D%7D_%7B%7Bad.id%7D%7D%7Cna.",
-    img: "assets/img/huggies-wipes.jpg",
-    blurb: "A bulk box of gentle wipes to get us through the first months.",
   },
   {
     id: "keekaroo",
@@ -346,18 +322,6 @@ var ITEMS = [
     blurb: "The matching cleaning tablets that keep the bottle washer running.",
   },
   {
-    id: "pampers-newborn",
-    name: "Pampers Swaddlers Diapers, Size N, 84 ct | CVS",
-    brand: "Pampers",
-    category: "Diapering",
-    priority: "must", // "must" or "nice"
-    price: "$39.59",
-    store: "CVS",
-    url: "https://www.cvs.com/shop/pampers-swaddlers-diapers-prodid-1010438?cid=sm_fos_feed",
-    img: "assets/img/pampers-newborn.jpg",
-    blurb: "A big box of newborn diapers to start the stash. Sizes 1 and up are welcome too.",
-  },
-  {
     id: "sudocrem",
     name: "Sudocrem Antiseptic Healing Cream 250g",
     brand: "Sudocrem",
@@ -478,18 +442,6 @@ var ITEMS = [
     blurb: "Any amount from $5 up. Perfect for diapers, wipes, and all the little things that add up.",
   },
   {
-    id: "giftcard-walmart",
-    name: "Walmart Gift Card",
-    brand: null,
-    category: "Gift Cards",
-    priority: "nice", // "must" or "nice"
-    price: "Any amount",
-    store: "Walmart",
-    url: "https://www.walmart.com/cp/gift-cards/96835",
-    giftCard: true,
-    blurb: "Any amount, usable in store and online. Great for everyday baby essentials at low prices.",
-  },
-  {
     id: "giftcard-costco",
     name: "Costco Shop Card",
     brand: null,
@@ -500,5 +452,65 @@ var ITEMS = [
     url: "https://www.costco.com/CatalogSearch?dept=All&keyword=costco+shop+card",
     giftCard: true,
     blurb: "From $25 up, and it works in the warehouse even without a membership. Perfect for stocking up on diapers and wipes in bulk.",
+  },
+  {
+    id: "newton-bassinet",
+    name: "Newton Baby Bassinet & Bedside Sleeper - Grey",
+    brand: "Newton Baby",
+    category: "Nursery",
+    priority: "must", // "must" or "nice"
+    price: "$299.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/newton-baby-bassinet-bedside-sleeper/38523/1502903?reg_item_id=883526061&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/newton-bassinet.jpg",
+    blurb: "A breathable bedside sleeper that keeps Vyom close through the night, right beside our bed.",
+  },
+  {
+    id: "brezza-washer",
+    name: "Baby Brezza Bottle Washer Pro - Charcoal",
+    brand: "Baby Brezza",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$299.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/baby-brezza-bottle-washer-pro/44961/2200478?reg_item_id=883525167&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/brezza-washer.jpg",
+    blurb: "Automatically washes, sterilizes, and dries bottles at the push of a button.",
+  },
+  {
+    id: "drbrowns-set",
+    name: "Dr. Brown's Options+ Narrow Bottles + Happy Paci Set (3-Pack)",
+    brand: "Dr. Brown's",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$19.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/dr-brown-s-options-narrow-anti-colic-baby-bottles-happy-paci-set-3-pack/85136/3481666?reg_item_id=883523832&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/drbrowns-set.jpg",
+    blurb: "Anti-colic narrow bottles plus a Happy Paci set, sized for newborn feeds.",
+  },
+  {
+    id: "avent-bottles-4oz",
+    name: "Philips Avent Natural Baby Bottles 4oz, Blue (4-Pack)",
+    brand: "Philips AVENT",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$26.12",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/philips-avent-natural-baby-bottle-with-natural-response-nipple/24594/2085106?reg_item_id=883522851&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/avent-bottles-4oz.jpg",
+    blurb: "Four 4oz Natural Response bottles in blue, sized just right for the early weeks.",
+  },
+  {
+    id: "giftcard-babylist",
+    name: "Babylist Gift Card",
+    brand: null,
+    category: "Gift Cards",
+    priority: "nice", // "must" or "nice"
+    price: "Any amount",
+    store: "Babylist",
+    url: "https://my.babylist.com/bini-bhattarai",
+    giftCard: true,
+    blurb: "A Babylist gift card from $25 up, spendable across the whole registry.",
   },
 ];
