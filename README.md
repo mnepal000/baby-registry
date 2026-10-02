@@ -5,7 +5,7 @@ A custom, static baby registry site for the Nepal family. Live at **https://mnep
 ## What it does
 
 - Warm, mobile-friendly one-page registry with a live countdown to the due date
-- 22 curated gift items with real store links, prices, photos, and short "why we picked it" notes
+- 29 curated gift items with real store links, prices, photos, and short "why we picked it" notes
 - Category chips, priority filter (must-have / nice-to-have), search, and hide-purchased toggle
 - "Mark as purchased" buttons backed by `localStorage`, plus a claimed-gifts progress bar
 - How-it-works section, alternative gift ideas (diaper fund, meal train, books), and FAQ
