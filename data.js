@@ -1,0 +1,241 @@
+// Baby registry data. Edit freely: add, remove, or change items here.
+// Prices were checked on 2026-10-01 and may change at the store.
+
+const REGISTRY = {
+  babyName: "Baby Nepal", // TODO: replace with the baby's name
+  familyName: "The Nepal Family",
+  dueDate: "2027-01-15", // TODO: replace with the exact due date (YYYY-MM-DD)
+  dueMonthLabel: "January 2027",
+  contactEmail: "hellomuku@gmail.com",
+};
+
+const ITEMS = [
+  {
+    id: "bravo-trio",
+    name: "Chicco - Bravo Trio Travel System Camden",
+    brand: "Chicco",
+    category: "Travel",
+    priority: "must", // "must" or "nice"
+    price: "$489.99",
+    store: "MacroBaby",
+    url: "https://www.macrobaby.com/products/chicco-bravo-trio-travel-system-camden?variant=39714051719227",
+    img: "assets/img/bravo-trio.jpg",
+    blurb: "Our pick for the one-and-done travel system: stroller plus the KeyFit 30 infant seat, with a one-hand quick fold for the car.",
+  },
+  {
+    id: "ergobaby-omni",
+    name: "Ergobaby(TM) Omni Classic Baby Carrier, Mesh, Gray",
+    brand: "Pottery Barn Kids",
+    category: "Travel",
+    priority: "nice", // "must" or "nice"
+    price: "$179",
+    store: "Pottery Barn Kids",
+    url: "https://www.potterybarnkids.com/products/ergobaby-360-omni-carrier/?catalogId=10&sku=8934615&cm_ven=organicsocial&cm_cat=InstagramFacebook&cm_pla=shoppable&cm_ite=skuname%2F",
+    img: "assets/img/ergobaby-omni.jpg",
+    blurb: "Keeps baby close on walks and errands, with lumbar support for longer carries.",
+  },
+  {
+    id: "kalani-crib",
+    name: "DaVinci Kalani 4-in-1 Convertible Crib",
+    brand: "DaVinci",
+    category: "Nursery",
+    priority: "must", // "must" or "nice"
+    price: "$299",
+    store: "Baby Cubby",
+    url: "https://www.babycubby.com/products/davinci-kalani-4-in-1-convertible-crib?variant=43077845450916",
+    img: "assets/img/kalani-crib.jpg",
+    blurb: "Converts from crib to toddler bed to daybed, so it grows with our little one for years.",
+  },
+  {
+    id: "sealy-mattress",
+    name: "Sealy Soybean Dreams Antibacterial 2-Stage Crib and Toddler Mattress",
+    brand: "Sealy",
+    category: "Nursery",
+    priority: "must", // "must" or "nice"
+    price: "$119.99",
+    store: "Target",
+    url: "https://www.target.com/p/sealy-soybean-dreams-antibacterial-2-stage-crib-and-toddler-mattress/-/A-78594866",
+    img: "assets/img/sealy-mattress.jpg",
+    blurb: "Firm, breathable, waterproof two-stage mattress made for newborns through toddlers.",
+  },
+  {
+    id: "hatch-rest",
+    name: "Hatch Rest + 2nd Gen Sound Machine & Nightlight with Battery",
+    brand: null,
+    category: "Nursery",
+    priority: "nice", // "must" or "nice"
+    price: "$99.99",
+    store: "Name Dropper Kids",
+    url: "https://namedropperkids.com/products/hatch-rest-2nd-gen-sound-machine-nightlight-with-battery?variant=46142805573875",
+    img: "assets/img/hatch-rest.jpg",
+    blurb: "White noise, night light, and wake-up cues in one, controlled from a phone.",
+  },
+  {
+    id: "vtech-monitor",
+    name: "VTech\u00ae Safe&Sound\u00ae Digital Audio Baby Monitor with LCD Display, up to 1,000-Ft. Range, Crystal Clear Sound, and Alerts, DM221",
+    brand: "VTech",
+    category: "Nursery",
+    priority: "must", // "must" or "nice"
+    price: "$62.99",
+    store: "Target",
+    url: "https://www.target.com/p/vtech-safe-sound-digital-audio-baby-monitor/-/A-92030963",
+    img: "assets/img/vtech-monitor.jpg",
+    blurb: "Simple, reliable audio monitor with long range and no WiFi setup needed.",
+  },
+  {
+    id: "swaddles",
+    name: "aden + anais essentials 4pk Cotton Muslin Swaddle Blankets - Sage Woodland",
+    brand: "aden + anais essentials",
+    category: "Nursery",
+    priority: "must", // "must" or "nice"
+    price: "$39.99",
+    store: "Target",
+    url: "https://www.target.com/p/aden-by-aden-anais-essentials-muslin-swaddle-blankets-woodland-4pk/-/A-92407763",
+    img: "assets/img/swaddles.jpg",
+    blurb: "Soft, breathable muslin blankets for swaddling, burping, and everything in between.",
+  },
+  {
+    id: "spectra-s1",
+    name: "S1 Hospital Grade Double Electric Breast Pump With Rechargeable Battery",
+    brand: null,
+    category: "Feeding",
+    priority: "must", // "must" or "nice"
+    price: "$216",
+    store: "Anawiz",
+    url: "https://www.anawiz.com/products/spectra-s1-hospital-grade-double-electric-breast-pump-with-rechargeable-battery-sps100?variant=32129930428548",
+    img: "assets/img/spectra-s1.jpg",
+    blurb: "Hospital-grade double electric pump with a rechargeable battery for pumping anywhere.",
+  },
+  {
+    id: "boppy",
+    name: "Boppy Nursing Pillow in Green Animal Sketches | 100% Polyester",
+    brand: "Boppy",
+    category: "Feeding",
+    priority: "must", // "must" or "nice"
+    price: "$49.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/gp/boppy-nursing-pillow/70620/2351358",
+    img: "assets/img/boppy.jpg",
+    blurb: "The classic nursing pillow: supportive positioning for feeding time.",
+  },
+  {
+    id: "avent-bottles",
+    name: "Philips Avent Natural Baby Bottle Newborn Starter Gift Set",
+    brand: "Philips AVENT",
+    category: "Feeding",
+    priority: "must", // "must" or "nice"
+    price: "$48.19",
+    store: "Babylist",
+    url: "https://www.babylist.com/gp/philips-avent-natural-baby-bottle-newborn-starter-gift-set/24134/1006494",
+    img: "assets/img/avent-bottles.jpg",
+    blurb: "Newborn starter set with anti-colic nipples, easy to clean and assemble.",
+  },
+  {
+    id: "graco-highchair",
+    name: "Ready2Dine\u00ae 4-in-1 Highchair",
+    brand: "Graco",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$99.99",
+    store: "Graco",
+    url: "https://www.gracobaby.com/shop/home-and-gear/high-chairs/ready2dine-4-in-1-highchair/SAP_2224047.html",
+    img: "assets/img/graco-highchair.jpg",
+    blurb: "Grows from infant recline to toddler booster, one chair for every stage.",
+  },
+  {
+    id: "ubbi-pail",
+    name: "Ubbi Stainless Steel Diaper Pail - Grey",
+    brand: "Ubbi",
+    category: "Diapering",
+    priority: "must", // "must" or "nice"
+    price: "$79.99",
+    store: "Albee Baby",
+    url: "https://www.albeebaby.com/products/ubbi-diaper-pail-grey?variant=49935523315943",
+    img: "assets/img/ubbi-pail.jpg",
+    blurb: "Steel body locks in odors and uses regular trash bags, no pricey refills.",
+  },
+  {
+    id: "huggies-wipes",
+    name: "Huggies Natural Care Refreshing Baby Wipes - Scented, 17 Pack/1088 ct",
+    brand: "Huggies",
+    category: "Diapering",
+    priority: "must", // "must" or "nice"
+    price: "$26.99",
+    store: "BJ's Wholesale Club",
+    url: "https://www.bjs.com/product/huggies-natural-care-refreshing-baby-wipes---scented-17-pk1088-ct/3000000000002312253/?trc=pdso%7Cfbad%7Cdpa%7Comni%7Coeg%7Cbaby%7Cfb_%7B%7Bcampaign.id%7D%7D_%7B%7Badset.id%7D%7D_%7B%7Bad.id%7D%7D%7Cna.",
+    img: "assets/img/huggies-wipes.jpg",
+    blurb: "A bulk box of gentle wipes to get us through the first months.",
+  },
+  {
+    id: "keekaroo",
+    name: "Keekaroo Peanut Changer",
+    brand: "Keekaroo",
+    category: "Diapering",
+    priority: "nice", // "must" or "nice"
+    price: "$149.95",
+    store: "Babinski's",
+    url: "https://babinskis.com/products/keekaroo-peanut-changer?variant=40962353594429",
+    img: "assets/img/keekaroo.jpg",
+    blurb: "Waterproof, wipeable changer, no extra covers or laundry needed.",
+  },
+  {
+    id: "fp-tub",
+    name: "Fisher-Price 4-in-1 Sling 'n Seat Tub | by Fleet Farm",
+    brand: "Fisher-Price",
+    category: "Bath & Health",
+    priority: "must", // "must" or "nice"
+    price: "$29.10",
+    store: "Fleet Farm",
+    url: "https://www.fleetfarm.com/detail/fisher-price-4-in-1-sling-n-seat-tub/0000101801891?Ntt=101801891",
+    img: "assets/img/fp-tub.jpg",
+    blurb: "Four stages from newborn sling to toddler tub in one compact footprint.",
+  },
+  {
+    id: "burts-towels",
+    name: "Burt's Bees Baby Organic Hooded Towels (2-Pack) in Little Ducks",
+    brand: "Burt's Bees Baby",
+    category: "Bath & Health",
+    priority: "nice", // "must" or "nice"
+    price: "$29.95",
+    store: "Babylist",
+    url: "https://www.babylist.com/gp/burt-s-bees-baby-organic-hooded-towels-2-pack/14450/230642",
+    img: "assets/img/burts-towels.jpg",
+    blurb: "Organic cotton hooded towels, soft and absorbent after bath time.",
+  },
+  {
+    id: "frida-thermometer",
+    name: "Frida Baby 3-in-1 Ear and Forehead Infrared Thermometer",
+    brand: "Frida",
+    category: "Bath & Health",
+    priority: "must", // "must" or "nice"
+    price: "$31.99",
+    store: "Target",
+    url: "https://www.target.com/p/frida-baby-3-in-1-ear-and-forehead-infrared-thermometer/-/A-80562700",
+    img: "assets/img/frida-thermometer.jpg",
+    blurb: "Quick ear, forehead, and touchless readings for middle-of-the-night checks.",
+  },
+  {
+    id: "carters-onesies",
+    name: "Carter's Baby Unisex 5-Pack Bodysuits",
+    brand: "Carter's",
+    category: "Clothing",
+    priority: "must", // "must" or "nice"
+    price: "$24.99",
+    store: "CookiesKids",
+    url: "https://www.cookieskids.com/Product.aspx?l=00170062006102200000&p=CTR07100&c=WHI&s=0006M&a=FacebookFeed",
+    img: "assets/img/carters-onesies.jpg",
+    blurb: "Everyday bodysuits in soft cotton, the unofficial newborn uniform.",
+  },
+  {
+    id: "fp-gym",
+    name: "Fisher Price - Glow & Grow Kick & Play Gym, Blue",
+    brand: null,
+    category: "Play",
+    priority: "nice", // "must" or "nice"
+    price: "$59.99",
+    store: "MacroBaby",
+    url: "https://www.macrobaby.com/products/fisher-price-glow-grow-kick-play-gym-blue?variant=43094643867707",
+    img: "assets/img/fp-gym.jpg",
+    blurb: "Kick-and-play piano gym for tummy time, batting practice, and first music lessons.",
+  },
+];

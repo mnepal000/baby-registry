@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Nepal is on the way | Our Baby Registry</title>
+<meta name="description" content="Our little one arrives January 2027. Browse our baby registry, pick a gift, and share the joy with us.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍼</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">🍼 <span id="brandName">Baby Nepal</span></a>
+    <nav class="site-nav">
+      <a href="#registry">Registry</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">A little one is on the way</p>
+      <h1><span id="heroBaby">Baby Nepal</span> arrives <span id="heroMonth">January 2027</span></h1>
+      <p class="hero-sub">We are counting down the days, and we would love for you to be part of the welcome.</p>
+      <div class="countdown" id="countdown" aria-label="Countdown to the due date">
+        <div class="cd-box"><span class="cd-num" id="cd-days">–</span><span class="cd-label">days</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">hours</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-mins">–</span><span class="cd-label">minutes</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-secs">–</span><span class="cd-label">seconds</span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#registry">Browse the registry</a>
+        <a class="btn btn-ghost" href="#how">How gifting works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="welcome">
+    <div class="wrap narrow">
+      <h2>A note from us</h2>
+      <p>Hello, and thank you for being here. We are expecting our little one this January, and we are so grateful to share this joy with you.</p>
+      <p>We put together this small registry of things we will actually use in the early months. Every item here was picked with care, and anything you choose will be loved and well used.</p>
+      <p>If you would rather give your time, a home-cooked meal, or simply your blessings, that means just as much to us.</p>
+      <p class="signature">With love,<br><span id="famName">The Nepal Family</span></p>
+    </div>
+  </section>
+
+  <section class="registry" id="registry">
+    <div class="wrap">
+      <h2>The registry</h2>
+      <p class="section-sub">Tap <strong>Mark as purchased</strong> after you buy something, so nobody else buys the same thing twice.</p>
+
+      <div class="progress-card">
+        <div class="progress-meta"><span id="progressText">0 of 19 gifts claimed</span><span id="progressPct">0%</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="filters">
+        <div class="chips" id="categoryChips" role="group" aria-label="Filter by category"></div>
+        <div class="filter-row">
+          <input type="search" id="searchBox" placeholder="Search gifts..." aria-label="Search gifts">
+          <select id="priorityFilter" aria-label="Filter by priority">
+            <option value="all">All priorities</option>
+            <option value="must">Must-haves</option>
+            <option value="nice">Nice-to-haves</option>
+          </select>
+          <label class="toggle"><input type="checkbox" id="hidePurchased"> <span>Hide purchased</span></label>
+        </div>
+      </div>
+
+      <div class="grid" id="itemGrid"></div>
+      <p class="empty-msg" id="emptyMsg" hidden>No gifts match your filters. Try clearing the search.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap narrow">
+      <h2>How gifting works</h2>
+      <ol class="steps">
+        <li><strong>Pick a gift</strong> from the registry above, something you would love to give.</li>
+        <li><strong>Buy it</strong> through the store link on the card. Prices were checked when the list was made and may have changed slightly.</li>
+        <li><strong>Mark it as purchased</strong> with the button on the card, so other gifters know it is taken care of.</li>
+      </ol>
+      <p class="fine-print">Purchased marks are saved in your own browser. If you grab one of the bigger gifts, do drop us a quick email too, so we can say thank you properly.</p>
+    </div>
+  </section>
+
+  <section class="alternatives">
+    <div class="wrap">
+      <h2>Other ways to give</h2>
+      <div class="alt-grid">
+        <div class="alt-card">
+          <div class="alt-icon">👶</div>
+          <h3>Diaper fund</h3>
+          <p>Diapers in sizes 1 and up are pure gold in the early months. Gift cards for diapers and wipes never go to waste.</p>
+        </div>
+        <div class="alt-card">
+          <div class="alt-icon">🍲</div>
+          <h3>Meal train</h3>
+          <p>A home-cooked meal or a food delivery gift card in those first sleepy weeks is worth more than you know.</p>
+        </div>
+        <div class="alt-card">
+          <div class="alt-icon">📚</div>
+          <h3>Books and blessings</h3>
+          <p>A favorite childhood book with a handwritten note inside becomes a keepsake for years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap narrow">
+      <h2>Questions</h2>
+      <details>
+        <summary>Where should gifts be shipped?</summary>
+        <p>We live in the Washington DC metro area. For the shipping address, just send us a quick email and we will share it privately.</p>
+      </details>
+      <details>
+        <summary>Should I include a gift receipt?</summary>
+        <p>Yes, please. Gift receipts make exchanges painless if we end up with duplicates.</p>
+      </details>
+      <details>
+        <summary>What if something is out of stock?</summary>
+        <p>No worries at all. Anything similar from a trusted brand works, or pick another item from the list.</p>
+      </details>
+      <details>
+        <summary>Can I give something that is not on the list?</summary>
+        <p>Of course. Books, muslin cloths, and diapers in larger sizes are always welcome.</p>
+      </details>
+      <details>
+        <summary>Can a few of us go in together on a bigger gift?</summary>
+        <p>Absolutely, we love that idea. Just mark it as purchased once it is sorted so nobody duplicates it.</p>
+      </details>
+      <p class="contact">Still unsure? Email us at <a id="contactEmail" href="mailto:hellomuku@gmail.com">hellomuku@gmail.com</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Made with love for <span id="footBaby">Baby Nepal</span>, arriving <span id="footMonth">January 2027</span> 💛</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
