@@ -84,7 +84,7 @@
   function pad(n) { return (n < 10 ? "0" : "") + n; }
 
   // ---- Filters ----
-  var CATEGORIES = ["All", "Travel", "Nursery", "Feeding", "Diapering", "Bath & Health", "Clothing", "Play"];
+  var CATEGORIES = ["All", "Travel", "Nursery", "Feeding", "Diapering", "Bath & Health", "Clothing", "Play", "Gift Cards"];
 
   function buildChips() {
     var wrap = document.getElementById("categoryChips");
@@ -301,14 +301,18 @@
     document.getElementById("emptyMsg").hidden = items.length > 0;
     grid.innerHTML = "";
     items.forEach(function (item) {
-      var found = getClaim(item.id);
+      var isGiftCard = !!item.giftCard;
+      var found = isGiftCard ? null : getClaim(item.id);
       var claimed = !!found;
       var card = document.createElement("article");
-      card.className = "card" + (claimed ? " purchased" : "");
+      card.className = "card" + (claimed ? " purchased" : "") + (isGiftCard ? " giftcard" : "");
 
       var badgeLabel = item.priority === "must" ? "Must-have" : "Nice-to-have";
+      var buyLabel = isGiftCard ? "Buy gift card" : "View / Buy";
       var actions;
-      if (claimed) {
+      if (isGiftCard) {
+        actions = "";
+      } else if (claimed) {
         var byName = found.data.name ? " by " + esc(found.data.name) : "";
         actions =
           '<button class="btn-claim claimed giver-link">Gifted' + byName + "</button>" +
@@ -317,9 +321,13 @@
         actions = '<button class="btn-claim">Mark as purchased</button>';
       }
 
+      var imgHtml = isGiftCard
+        ? '<div class="giftcard-art" role="img" aria-label="Gift card"><span>🎁</span></div>'
+        : '<img src="' + esc(item.img) + '" alt="' + esc(item.name) + '" loading="lazy">';
+
       card.innerHTML =
         '<div class="card-img">' +
-          '<img src="' + esc(item.img) + '" alt="' + esc(item.name) + '" loading="lazy">' +
+          imgHtml +
           '<span class="badge ' + item.priority + '">' + badgeLabel + "</span>" +
           (claimed ? '<span class="purchased-ribbon">Purchased ✓</span>' : "") +
         "</div>" +
@@ -331,12 +339,14 @@
           '<div class="card-meta"><span class="card-price">' + esc(item.price) + "</span>" +
           '<span class="card-store">at ' + esc(item.store) + "</span></div>" +
           '<div class="card-actions">' +
-            '<a class="btn-buy" href="' + esc(item.url) + '" target="_blank" rel="noopener">View / Buy</a>' +
+            '<a class="btn-buy" href="' + esc(item.url) + '" target="_blank" rel="noopener">' + buyLabel + "</a>" +
             actions +
           "</div>" +
         "</div>";
 
-      if (claimed) {
+      if (isGiftCard) {
+        // gift cards are never claimed: any amount, no duplicates possible
+      } else if (claimed) {
         card.querySelector(".giver-link").addEventListener("click", function () {
           openDetailsModal(item, found.data, found.shared);
         });

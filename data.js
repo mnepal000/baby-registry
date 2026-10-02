@@ -397,4 +397,52 @@ var ITEMS = [
     img: "assets/img/lanolin.jpg",
     blurb: "Soothes and protects sore nipples in the early breastfeeding days.",
   },
+  {
+    id: "giftcard-amazon",
+    name: "Amazon Gift Card",
+    brand: null,
+    category: "Gift Cards",
+    priority: "nice", // "must" or "nice"
+    price: "Any amount",
+    store: "Amazon",
+    url: "https://www.amazon.com/gift-cards/",
+    giftCard: true,
+    blurb: "Any amount from $5 up, delivered by email. Lets us pick exactly what Vyom needs, when he needs it.",
+  },
+  {
+    id: "giftcard-target",
+    name: "Target Gift Card",
+    brand: null,
+    category: "Gift Cards",
+    priority: "nice", // "must" or "nice"
+    price: "Any amount",
+    store: "Target",
+    url: "https://www.target.com/c/gift-cards/-/N-5xsxu?type=products",
+    giftCard: true,
+    blurb: "Any amount from $5 up. Perfect for diapers, wipes, and all the little things that add up.",
+  },
+  {
+    id: "giftcard-walmart",
+    name: "Walmart Gift Card",
+    brand: null,
+    category: "Gift Cards",
+    priority: "nice", // "must" or "nice"
+    price: "Any amount",
+    store: "Walmart",
+    url: "https://www.walmart.com/cp/gift-cards/96835",
+    giftCard: true,
+    blurb: "Any amount, usable in store and online. Great for everyday baby essentials at low prices.",
+  },
+  {
+    id: "giftcard-doordash",
+    name: "DoorDash Gift Card",
+    brand: null,
+    category: "Gift Cards",
+    priority: "nice", // "must" or "nice"
+    price: "Any amount",
+    store: "DoorDash",
+    url: "https://www.doordash.com/gift-cards/",
+    giftCard: true,
+    blurb: "Food delivery for the beautiful, exhausting first weeks. They even have a baby shower design.",
+  },
 ];
