@@ -16,6 +16,10 @@
 
 * { box-sizing: border-box; }
 
+html, body { overflow-x: clip; }
+
+img { max-width: 100%; }
+
 body {
   margin: 0;
   font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -72,6 +76,7 @@ body {
 /* Watch him grow */
 .growing { padding: 72px 0; background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .growing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.growing-inner > * { min-width: 0; }
 .growing-art { width: 100%; border-radius: 24px; box-shadow: var(--shadow); }
 .growing-card h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 8px; }
 .grow-emoji { font-size: 4.2rem; margin: 12px 0 4px; animation: floaty 4s ease-in-out infinite; }
@@ -246,9 +251,13 @@ h2 { font-size: 1.7rem; margin: 0 0 8px; }
 .giver-link { cursor: pointer; }
 
 @media (max-width: 560px) {
-  .site-nav a { margin-left: 12px; font-size: 0.85rem; }
+  .header-inner { flex-wrap: wrap; height: auto; padding: 10px 0; row-gap: 8px; }
+  .site-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .site-nav a { margin-left: 0; font-size: 0.85rem; }
   .hero { padding: 52px 0 48px; }
   .cd-box { min-width: 64px; }
   .filter-row { flex-direction: column; align-items: stretch; }
   #searchBox { min-width: 0; }
+  .card-actions { flex-wrap: wrap; }
+  .btn-buy, .btn-claim { flex: 1 1 140px; }
 }
