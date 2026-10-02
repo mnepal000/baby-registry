@@ -352,7 +352,8 @@
       card.className = "card" + (claimed ? " purchased" : "") + (isGiftCard ? " giftcard" : "");
 
       var badgeLabel = item.priority === "must" ? "Must-have" : "Nice-to-have";
-      var buyLabel = isGiftCard ? "Buy gift card" : "View / Buy";
+      var viaBabylist = !isGiftCard && /babylist\.com/.test(item.url || "");
+      var buyLabel = isGiftCard ? "Buy gift card" : (viaBabylist ? "Buy on Babylist" : "View / Buy");
       var actions;
       if (isGiftCard) {
         actions = "";
