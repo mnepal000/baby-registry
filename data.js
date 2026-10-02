@@ -2,9 +2,9 @@
 // Prices were checked on 2026-10-01 and may change at the store.
 
 const REGISTRY = {
-  babyName: "Baby Nepal", // TODO: replace with the baby's name
+  babyName: "Vyom Nepal",
   familyName: "The Nepal Family",
-  dueDate: "2027-01-15", // TODO: replace with the exact due date (YYYY-MM-DD)
+  dueDate: "2027-01-09",
   dueMonthLabel: "January 2027",
   contactEmail: "hellomuku@gmail.com",
 };
