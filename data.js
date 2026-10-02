@@ -477,15 +477,15 @@ var ITEMS = [
     blurb: "Any amount, usable in store and online. Great for everyday baby essentials at low prices.",
   },
   {
-    id: "giftcard-doordash",
-    name: "DoorDash Gift Card",
+    id: "giftcard-costco",
+    name: "Costco Shop Card",
     brand: null,
     category: "Gift Cards",
     priority: "nice", // "must" or "nice"
     price: "Any amount",
-    store: "DoorDash",
-    url: "https://www.doordash.com/gift-cards/",
+    store: "Costco",
+    url: "https://www.costco.com/CatalogSearch?dept=All&keyword=costco+shop+card",
     giftCard: true,
-    blurb: "Food delivery for the beautiful, exhausting first weeks. They even have a baby shower design.",
+    blurb: "From $25 up, and it works in the warehouse even without a membership. Perfect for stocking up on diapers and wipes in bulk.",
   },
 ];
