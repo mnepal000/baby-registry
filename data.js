@@ -24,6 +24,49 @@ var CLAIM_CONFIG = {
   sheetCsvUrl: "" // published CSV link of the Form's response sheet
 };
 
+// Approximate size comparisons by gestational week (for the "watch him grow" section).
+var WEEK_SIZES = [
+  { week: 4,  size: "a poppy seed", emoji: "🌱", length: "about 2 mm", weight: "less than a gram" },
+  { week: 5,  size: "a sesame seed", emoji: "🌾", length: "about 3 mm", weight: "less than a gram" },
+  { week: 6,  size: "a lentil", emoji: "🫘", length: "about 6 mm", weight: "less than a gram" },
+  { week: 7,  size: "a blueberry", emoji: "🫐", length: "about 1.3 cm", weight: "less than a gram" },
+  { week: 8,  size: "a kidney bean", emoji: "🫘", length: "about 1.6 cm", weight: "about 1 g" },
+  { week: 9,  size: "a cherry", emoji: "🍒", length: "about 2.3 cm", weight: "about 2 g" },
+  { week: 10, size: "a kumquat", emoji: "🍊", length: "about 3.1 cm", weight: "about 4 g" },
+  { week: 11, size: "a fig", emoji: "🫒", length: "about 4.1 cm", weight: "about 7 g" },
+  { week: 12, size: "a lime", emoji: "🟢", length: "about 5.4 cm", weight: "about 14 g" },
+  { week: 13, size: "a pea pod", emoji: "🫛", length: "about 7.4 cm", weight: "about 23 g" },
+  { week: 14, size: "a lemon", emoji: "🍋", length: "about 8.7 cm", weight: "about 43 g" },
+  { week: 15, size: "an apple", emoji: "🍎", length: "about 10 cm", weight: "about 70 g" },
+  { week: 16, size: "an avocado", emoji: "🥑", length: "about 11.6 cm", weight: "about 100 g" },
+  { week: 17, size: "a pear", emoji: "🍐", length: "about 13 cm", weight: "about 140 g" },
+  { week: 18, size: "a bell pepper", emoji: "🫑", length: "about 14 cm", weight: "about 190 g" },
+  { week: 19, size: "a tomato", emoji: "🍅", length: "about 15 cm", weight: "about 240 g" },
+  { week: 20, size: "a banana", emoji: "🍌", length: "about 25.6 cm", weight: "about 300 g" },
+  { week: 21, size: "a carrot", emoji: "🥕", length: "about 26.7 cm", weight: "about 350 g" },
+  { week: 22, size: "a spaghetti squash", emoji: "🎃", length: "about 27.8 cm", weight: "about 430 g" },
+  { week: 23, size: "a grapefruit", emoji: "🍊", length: "about 28.9 cm", weight: "about 500 g" },
+  { week: 24, size: "an ear of corn", emoji: "🌽", length: "about 30 cm", weight: "about 600 g" },
+  { week: 25, size: "a rutabaga", emoji: "🥔", length: "about 34.6 cm", weight: "about 660 g" },
+  { week: 26, size: "a head of lettuce", emoji: "🥬", length: "about 35.6 cm", weight: "about 760 g" },
+  { week: 27, size: "a cauliflower", emoji: "🥦", length: "about 36.6 cm", weight: "about 875 g" },
+  { week: 28, size: "an eggplant", emoji: "🍆", length: "about 37.6 cm", weight: "about 1 kg" },
+  { week: 29, size: "a butternut squash", emoji: "🎃", length: "about 38.6 cm", weight: "about 1.2 kg" },
+  { week: 30, size: "a cabbage", emoji: "🥬", length: "about 39.9 cm", weight: "about 1.3 kg" },
+  { week: 31, size: "a coconut", emoji: "🥥", length: "about 41 cm", weight: "about 1.5 kg" },
+  { week: 32, size: "a jicama", emoji: "🥔", length: "about 42.4 cm", weight: "about 1.7 kg" },
+  { week: 33, size: "a pineapple", emoji: "🍍", length: "about 43.7 cm", weight: "about 1.9 kg" },
+  { week: 34, size: "a cantaloupe", emoji: "🍈", length: "about 45 cm", weight: "about 2.1 kg" },
+  { week: 35, size: "a honeydew melon", emoji: "🍈", length: "about 46 cm", weight: "about 2.4 kg" },
+  { week: 36, size: "a romaine heart", emoji: "🥬", length: "about 47.4 cm", weight: "about 2.6 kg" },
+  { week: 37, size: "a bunch of Swiss chard", emoji: "🥬", length: "about 48.6 cm", weight: "about 2.9 kg" },
+  { week: 38, size: "a pumpkin", emoji: "🎃", length: "about 49.5 cm", weight: "about 3.1 kg" },
+  { week: 39, size: "a watermelon", emoji: "🍉", length: "about 50.7 cm", weight: "about 3.3 kg" },
+  { week: 40, size: "a watermelon", emoji: "🍉", length: "about 51 cm", weight: "about 3.5 kg" },
+  { week: 41, size: "a watermelon", emoji: "🍉", length: "about 51.7 cm", weight: "about 3.6 kg" },
+  { week: 42, size: "a watermelon", emoji: "🍉", length: "about 52 cm", weight: "about 3.7 kg" }
+];
+
 var ITEMS = [
   {
     id: "bravo-trio",

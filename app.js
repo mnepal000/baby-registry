@@ -83,6 +83,41 @@
   }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
 
+  // ---- Watch him grow: gestational week from the due date ----
+  function renderGrowth() {
+    var r = window.REGISTRY || {};
+    var sizes = window.WEEK_SIZES || [];
+    if (!r.dueDate || !sizes.length) return;
+    var baby = r.babyName ? r.babyName.split(" ")[0] : "Baby";
+    setText("growTitle", baby + " is growing");
+
+    var due = new Date(r.dueDate + "T00:00:00");
+    var now = new Date();
+    var textEl = document.getElementById("growText");
+    var dimsEl = document.getElementById("growDims");
+    var emojiEl = document.getElementById("growEmoji");
+
+    if (now >= due) {
+      emojiEl.textContent = "💛";
+      textEl.innerHTML = "<strong>" + esc(baby) + "</strong> should be here any day now. Welcome, little one!";
+      dimsEl.textContent = "";
+      return;
+    }
+    // gestational age: 280 days before the due date is day 0
+    var conception = new Date(due.getTime() - 280 * 86400000);
+    var week = Math.floor((now - conception) / (7 * 86400000));
+    if (week < 4) {
+      emojiEl.textContent = "✨";
+      textEl.innerHTML = "The journey has just begun. <strong>" + esc(baby) + "</strong> is on the way!";
+      dimsEl.textContent = "";
+      return;
+    }
+    var w = sizes.filter(function (s) { return s.week === Math.min(week, 42); })[0] || sizes[sizes.length - 1];
+    emojiEl.textContent = w.emoji;
+    textEl.innerHTML = "Week " + w.week + ": <strong>" + esc(baby) + "</strong> is about the size of <strong>" + esc(w.size) + "</strong>.";
+    dimsEl.textContent = w.length + " long · " + w.weight;
+  }
+
   // ---- Filters ----
   var CATEGORIES = ["All", "Travel", "Nursery", "Feeding", "Diapering", "Bath & Health", "Clothing", "Play", "Gift Cards"];
 
@@ -393,6 +428,7 @@
   initModal();
   buildChips();
   render();
+  renderGrowth();
   loadSheetClaims();
   tickCountdown();
   setInterval(tickCountdown, 1000);

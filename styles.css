@@ -64,6 +64,25 @@ body {
 .cd-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--ink-soft); }
 
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-art {
+  display: block; margin: 40px auto 0; width: 100%; max-width: 480px;
+  border-radius: 24px; box-shadow: var(--shadow);
+}
+
+/* Watch him grow */
+.growing { padding: 72px 0; background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.growing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.growing-art { width: 100%; border-radius: 24px; box-shadow: var(--shadow); }
+.growing-card h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 0 0 8px; }
+.grow-emoji { font-size: 4.2rem; margin: 12px 0 4px; animation: floaty 4s ease-in-out infinite; }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.grow-text { font-size: 1.15rem; margin: 0 0 8px; }
+.grow-text strong { color: var(--terra-dark); }
+.grow-dims { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+@media (max-width: 760px) {
+  .growing-inner { grid-template-columns: 1fr; gap: 28px; }
+  .growing-card { text-align: center; }
+}
 .btn {
   display: inline-block; padding: 13px 26px; border-radius: 999px;
   font-weight: 600; text-decoration: none; font-size: 1rem; transition: transform 0.15s ease;
