@@ -7,7 +7,7 @@
 // We map Babylist titles to our ITEMS ids and record the purchased ones.
 // The site loads babylist-purchased.json and shows those cards as purchased.
 
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync, existsSync } from "fs";
 
 const REGISTRY_UUID = "FC87C487-D435-49DA-B2AA-368E40258CF2"; // Bini's Baby Registry
 const API = `https://www.babylist.com/api/v3/registries/${REGISTRY_UUID}/reg_items/minimal`;
@@ -104,6 +104,27 @@ for (const i of items) {
 }
 
 const out = { updated: new Date().toISOString(), purchased: purchased.sort() };
+
+// Only write the file (and bump the timestamp) when the purchased list
+// actually changed. Otherwise a fresh `updated` timestamp would make every
+// 2h cron push a no-op commit.
+let prevPurchased = null;
+if (existsSync("babylist-purchased.json")) {
+  try {
+    prevPurchased = JSON.parse(readFileSync("babylist-purchased.json", "utf8")).purchased;
+  } catch {
+    prevPurchased = null;
+  }
+}
+const same =
+  Array.isArray(prevPurchased) &&
+  prevPurchased.length === out.purchased.length &&
+  prevPurchased.every((id, i) => id === out.purchased[i]);
+if (same) {
+  console.log(`ok: ${items.length} registry items, ${out.purchased.length} purchased (unchanged)`);
+  for (const w of warnings) console.log("WARN:", w);
+  process.exit(0);
+}
 writeFileSync("babylist-purchased.json", JSON.stringify(out, null, 2) + "\n");
-console.log(`ok: ${items.length} registry items, ${purchased.length} purchased`);
+console.log(`ok: ${items.length} registry items, ${out.purchased.length} purchased (changed)`);
 for (const w of warnings) console.log("WARN:", w);
