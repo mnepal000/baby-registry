@@ -519,6 +519,29 @@
     render();
   });
 
+  // ---- Name suggestion form: opens the visitor's email app, nothing stored ----
+  var nameForm = document.getElementById("nameForm");
+  if (nameForm) {
+    nameForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var r = window.REGISTRY || {};
+      var to = r.contactEmail || "hellomuku@gmail.com";
+      var sug = document.getElementById("nsName").value.trim();
+      var why = document.getElementById("nsWhy").value.trim();
+      var from = document.getElementById("nsFrom").value.trim();
+      if (!sug) return;
+      var body = "Name suggestion for Dallu: " + sug +
+        (why ? "\nWhy this name: " + why : "") +
+        (from ? "\nSuggested by: " + from : "");
+      window.location.href = "mailto:" + to +
+        "?subject=" + encodeURIComponent("Name suggestion for Dallu") +
+        "&body=" + encodeURIComponent(body);
+      var note = document.getElementById("nsNote");
+      if (note) note.textContent = "Thank you! Your email app should have opened with the suggestion ready to send. \uD83D\uDC9B";
+      nameForm.reset();
+    });
+  }
+
   personalize();
   initModal();
   buildChips();

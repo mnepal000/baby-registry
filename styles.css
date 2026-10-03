@@ -9,7 +9,7 @@
   --gold: #C9962E;
   --card: #FFFFFF;
   --line: #EBDCC4;
-  --radius: 18px;
+  --radius: 22px;
   --shadow: 0 6px 24px rgba(62, 47, 35, 0.08);
 }
 
@@ -20,14 +20,14 @@ html, body { overflow-x: clip; }
 img { max-width: 100%; }
 
 h1, h2, h3, .tl-card h4 {
-  font-family: "Rozha One", "Tiro Devanagari Sanskrit", Georgia, serif;
-  font-weight: 400;
+  font-family: "Baloo 2", "Nunito", Georgia, serif;
+  font-weight: 700;
   color: var(--maroon-dark);
 }
 
 body {
   margin: 0;
-  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: "Nunito", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
   background: var(--cream);
   color: var(--ink);
   line-height: 1.6;
@@ -63,6 +63,39 @@ body {
 }
 .hero h1 { font-size: clamp(2rem, 5.5vw, 3.4rem); line-height: 1.15; margin: 0 0 12px; }
 .hero-sub { color: var(--ink-soft); font-size: 1.1rem; margin: 0 0 28px; }
+
+/* Floating baby icons above the sign */
+.floaties { display: flex; gap: 28px; justify-content: center; font-size: 1.7rem; margin: 2px 0 12px; }
+.floaties span { display: inline-block; animation: floaty 4s ease-in-out infinite; }
+.floaties span:nth-child(2) { animation-delay: -1.3s; }
+.floaties span:nth-child(3) { animation-delay: -2.6s; }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Glowing "live sign" */
+.live-sign {
+  display: inline-block;
+  background: linear-gradient(165deg, #8e2c3b 0%, #5e1c29 100%);
+  border: 3px solid #b35660;
+  border-radius: 30px;
+  padding: 20px 48px;
+  margin: 4px 0 20px;
+  box-shadow: 0 12px 32px rgba(110, 35, 48, 0.35), inset 0 0 28px rgba(0, 0, 0, 0.28);
+  animation: signIn 0.9s ease-out both;
+}
+.live-sign .sign-text {
+  font-family: "Baloo 2", "Nunito", cursive;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  color: #ffedbe;
+  text-shadow: 0 0 6px #ffd97a, 0 0 20px #f7b733, 0 0 46px #e8912d;
+  animation: signGlow 3.4s ease-in-out infinite;
+}
+@keyframes signIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+@keyframes signGlow { 0%, 100% { opacity: 1; } 50% { opacity: 0.93; } }
+@media (prefers-reduced-motion: reduce) {
+  .live-sign, .live-sign .sign-text, .floaties span { animation: none; }
+}
 
 .countdown { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
 .cd-box {
@@ -326,7 +359,25 @@ h2 { font-size: 1.7rem; margin: 0 0 8px; }
 
 /* Sanskrit blessing */
 .blessing {
-  font-family: "Tiro Devanagari Sanskrit", "Rozha One", serif;
+  font-family: "Baloo 2", "Nunito", serif;
   font-size: 1.7rem; color: var(--maroon); text-align: center; margin: 30px 0 4px;
 }
 .blessing-en { text-align: center; color: var(--ink-soft); font-style: italic; margin: 0; }
+
+/* Name suggestion form */
+.names { padding: 64px 0; background: var(--cream-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.names h2 { margin-top: 0; }
+#nameForm {
+  background: var(--card); border: 1px solid var(--line); border-radius: 26px;
+  padding: 28px; box-shadow: var(--shadow); margin-top: 24px;
+}
+.field { display: block; margin-bottom: 16px; }
+.field-label { display: block; font-weight: 700; margin-bottom: 6px; }
+.field .req { color: var(--maroon); }
+.field .opt { color: var(--ink-soft); font-weight: 400; font-size: 0.85em; }
+.field input {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: 16px;
+  font: inherit; background: #fff; color: var(--ink);
+}
+.field input:focus { outline: none; border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(232, 145, 45, 0.18); }
+.form-note { color: var(--ink-soft); font-size: 0.9rem; margin: 14px 0 0; }

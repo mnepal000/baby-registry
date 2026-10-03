@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vyom Nepal is on the way | Our Baby Registry</title>
-<meta name="description" content="Our little one arrives January 2027. Browse our baby registry, pick a gift, and share the joy with us.">
+<title>Dallu is on the way | Our Baby Registry</title>
+<meta name="description" content="Hello, Dallu! Our little one arrives January 2027. Browse our baby registry, suggest a name, and share the joy with us.">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/img/lotus-mark.png">
 <link rel="apple-touch-icon" href="assets/img/lotus-mark.png">
 </head>
@@ -19,6 +19,7 @@
     <a class="brand" href="#top">☁️ <span id="brandName">Baby Nepal</span></a>
     <nav class="site-nav">
       <a href="#registry">Registry</a>
+      <a href="#names">Suggest a name</a>
       <a href="#growing">Watch him grow</a>
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
@@ -31,8 +32,9 @@
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">A little one is on the way</p>
-      <h1><span id="heroBaby">Baby Nepal</span> arrives <span id="heroMonth">January 2027</span></h1>
-      <p class="hero-sub">We are counting down the days, and we would love for you to be part of the welcome.</p>
+      <div class="floaties" aria-hidden="true"><span>🌙</span><span>⭐</span><span>🧸</span></div>
+      <h1 class="live-sign"><span class="sign-text">Hello, <span id="heroBaby">Dallu</span>.</span></h1>
+      <p class="hero-sub">Our little one arrives <span id="heroMonth">January 2027</span>, and we would love for you to be part of the welcome.</p>
       <div class="countdown" id="countdown" aria-label="Countdown to the due date">
         <div class="cd-box"><span class="cd-num" id="cd-days">–</span><span class="cd-label">days</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">hours</span></div>
@@ -64,7 +66,7 @@
       <img class="growing-art" src="assets/img/hero-newborn.jpg" alt="Watercolor illustration of a sleeping newborn baby" loading="lazy">
       <div class="growing-card">
         <p class="eyebrow">Watch him grow</p>
-        <h2 id="growTitle">Vyom is growing</h2>
+        <h2 id="growTitle">Dallu is growing</h2>
         <div class="grow-emoji" id="growEmoji">🌱</div>
         <p class="grow-text" id="growText"></p>
         <p class="grow-dims" id="growDims"></p>
@@ -93,7 +95,7 @@
     <div class="wrap narrow">
       <h2>A note from us</h2>
       <p>Hello, and thank you for being here. We are expecting our baby boy this January, and we are so grateful to share this joy with you.</p>
-      <p>We named him <strong>Vyom</strong> (व्योम, pronounced <em>"vyohm"</em> — rhymes with <em>"home"</em>, phonetically /ʋjoːm/), the Sanskrit word for <em>"sky"</em> — our own little piece of the sky, on his way down to us.</p>
+      <p>At home we already call him <strong>Dallu</strong>, our little pet name for him. We think his forever name will be <strong>Vyom</strong> (व्योम, the Sanskrit word for <em>"sky"</em>), but we are keeping our hearts open a little longer. So for now, he is simply Dallu, our own little piece of the sky, on his way down to us.</p>
       <p class="blessing" lang="sa">॥ आयुष्मान् भव ॥</p>
       <p class="blessing-en">May you live long and shine bright, little one.</p>
       <p>We put together this small registry of things we will actually use in the early months. Every item here was picked with care, and anything you choose will be loved and well used.</p>
@@ -171,6 +173,30 @@
           <p>A favorite childhood book with a handwritten note inside becomes a keepsake for years.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="names" id="names">
+    <div class="wrap narrow">
+      <p class="eyebrow">Dallu for now, but forever?</p>
+      <h2>Help us name him</h2>
+      <p>We are still choosing his forever name, and we would love your ideas. Nepali, Sanskrit, or something unexpected, if you have a favorite, share it with us.</p>
+      <form id="nameForm">
+        <label class="field">
+          <span class="field-label">Your name suggestion <span class="req">*</span></span>
+          <input type="text" id="nsName" required maxlength="60" placeholder="e.g. Aarav" autocomplete="off">
+        </label>
+        <label class="field">
+          <span class="field-label">Why this name? <span class="opt">(optional)</span></span>
+          <input type="text" id="nsWhy" maxlength="140" placeholder="Its meaning, or why you love it" autocomplete="off">
+        </label>
+        <label class="field">
+          <span class="field-label">With love, from <span class="opt">(optional)</span></span>
+          <input type="text" id="nsFrom" maxlength="60" placeholder="Your name" autocomplete="off">
+        </label>
+        <button class="btn btn-primary" type="submit">Send suggestion 💛</button>
+        <p class="form-note" id="nsNote">This opens your email app with the suggestion addressed to us. Nothing is posted publicly.</p>
+      </form>
     </div>
   </section>
 

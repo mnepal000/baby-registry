@@ -2,7 +2,7 @@
 // Prices were checked on 2026-10-01 and may change at the store.
 
 var REGISTRY = {
-  babyName: "Vyom Nepal",
+  babyName: "Dallu",
   familyName: "The Nepal Family",
   dueDate: "2027-01-09",
   dueMonthLabel: "January 2027",
@@ -259,7 +259,7 @@ var ITEMS = [
     store: "Babylist",
     url: "https://my.babylist.com/bini-bhattarai",
     img: "assets/img/bed-rail.jpg",
-    blurb: "Extra-long swing-down rail for the bed, so Vyom can sleep safely right beside us.",
+    blurb: "Extra-long swing-down rail for the bed, so Dallu can sleep safely right beside us.",
   },
   {
     id: "nursing-glider",
@@ -295,7 +295,7 @@ var ITEMS = [
     store: "Babylist",
     url: "https://my.babylist.com/bini-bhattarai",
     img: "assets/img/big-playpen.jpg",
-    blurb: "Extra-large foldable play yard, roomy enough for Vyom to crawl around and for a parent to climb in too.",
+    blurb: "Extra-large foldable play yard, roomy enough for Dallu to crawl around and for a parent to climb in too.",
   },
   {
     id: "bottle-washer",
@@ -391,7 +391,7 @@ var ITEMS = [
     store: "Babylist",
     url: "https://my.babylist.com/bini-bhattarai",
     img: "assets/img/car-mirror.jpg",
-    blurb: "Lets the driver see Vyom in his rear-facing seat at a glance.",
+    blurb: "Lets the driver see Dallu in his rear-facing seat at a glance.",
   },
   {
     id: "halo-sleepsack",
@@ -403,7 +403,7 @@ var ITEMS = [
     store: "Babylist",
     url: "https://www.babylist.com/ggp/halo-sleepsack-swaddle-cotton/2204/1699370?reg_item_id=893747806&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/halo-sleepsack.jpg",
-    blurb: "A wearable blanket that keeps Vyom snug and safe without loose blankets in the bed.",
+    blurb: "A wearable blanket that keeps Dallu snug and safe without loose blankets in the bed.",
   },
   {
     id: "lanolin",
@@ -427,7 +427,7 @@ var ITEMS = [
     store: "Amazon",
     url: "https://www.amazon.com/gift-cards/",
     giftCard: true,
-    blurb: "Any amount from $5 up, delivered by email. Lets us pick exactly what Vyom needs, when he needs it.",
+    blurb: "Any amount from $5 up, delivered by email. Lets us pick exactly what Dallu needs, when he needs it.",
   },
   {
     id: "giftcard-target",
@@ -463,7 +463,7 @@ var ITEMS = [
     store: "Babylist",
     url: "https://www.babylist.com/ggp/newton-baby-bassinet-bedside-sleeper/38523/1502903?reg_item_id=883526061&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
     img: "assets/img/newton-bassinet.jpg",
-    blurb: "A breathable bedside sleeper that keeps Vyom close through the night, right beside our bed.",
+    blurb: "A breathable bedside sleeper that keeps Dallu close through the night, right beside our bed.",
   },
   {
     id: "brezza-washer",
