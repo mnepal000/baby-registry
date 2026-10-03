@@ -157,7 +157,7 @@
 
     var milestones = [
       { date: "2026-05-10", title: "We found out",
-        note: "Two pink lines on a Sunday morning. " + baby + " was the size of " + sizeFor(5) + " and already running the household." },
+        note: "Two pink lines on a Sunday evening. " + baby + " was the size of " + sizeFor(5) + " and already running the household." },
       { date: "2026-05-19", title: "First sonogram",
         note: "We heard the heartbeat for the first time. It sounded like a tiny drum solo, and we both pretended not to tear up." },
       { date: "2026-07-04", title: "First trimester, done",
