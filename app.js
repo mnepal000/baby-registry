@@ -82,9 +82,6 @@
       return;
     }
     setText("cd-days", Math.floor(diff / 86400000));
-    setText("cd-hours", pad(Math.floor(diff / 3600000) % 24));
-    setText("cd-mins", pad(Math.floor(diff / 60000) % 60));
-    setText("cd-secs", pad(Math.floor(diff / 1000) % 60));
   }
   function setText(id, v) {
     var el = document.getElementById(id);
