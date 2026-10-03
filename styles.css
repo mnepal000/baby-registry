@@ -234,6 +234,7 @@ h2 { font-size: 1.7rem; margin: 0 0 8px; }
 }
 .btn-claim:hover { border-color: var(--gold); color: var(--ink); }
 .btn-claim.claimed { background: var(--cream-deep); border-color: var(--gold); color: var(--ink); }
+span.btn-claim.claimed { cursor: default; }
 .card.purchased { opacity: 0.75; }
 .card.purchased .card-img img { filter: saturate(0.6); }
 .empty-msg { text-align: center; color: var(--ink-soft); padding: 40px 0; }

@@ -13,7 +13,8 @@
     query: "",
     hidePurchased: false,
     localClaims: loadLocalClaims(), // { itemId: {name, platform, order, message, ts} }
-    sheetClaims: {}                 // { itemId: {...} } from published CSV
+    sheetClaims: {},                // { itemId: {...} } from published CSV
+    babylistPurchased: {}           // { itemId: true } synced from Babylist
   };
 
   function loadLocalClaims() {
@@ -36,6 +37,7 @@
   function getClaim(itemId) {
     if (state.sheetClaims[itemId]) return { data: state.sheetClaims[itemId], shared: true };
     if (state.localClaims[itemId]) return { data: state.localClaims[itemId], shared: false };
+    if (state.babylistPurchased[itemId]) return { data: { name: "Purchased on Babylist" }, shared: true, fromBabylist: true };
     return null;
   }
 
@@ -404,6 +406,21 @@
       .catch(function () { /* sheet unavailable: local claims still work */ });
   }
 
+  // ---- Babylist purchase sync (read-only; synced every 2h by cron) ----
+  function loadBabylistPurchased() {
+    fetch("babylist-purchased.json?v=" + Date.now())
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && Array.isArray(d.purchased)) {
+          var map = {};
+          d.purchased.forEach(function (id) { map[id] = true; });
+          state.babylistPurchased = map;
+          render();
+        }
+      })
+      .catch(function () { /* missing file: local claims still work */ });
+  }
+
   // ---- Render ----
   function render() {
     var grid = document.getElementById("itemGrid");
@@ -442,10 +459,14 @@
       if (isGiftCard) {
         actions = "";
       } else if (claimed) {
-        var byName = found.data.name ? " by " + esc(found.data.name) : "";
-        actions =
-          '<button class="btn-claim claimed giver-link">Gifted' + byName + "</button>" +
-          (!found.shared ? '<button class="btn-undo" title="Undo your claim">Undo</button>' : "");
+        if (found.fromBabylist) {
+          actions = '<span class="btn-claim claimed">Purchased on Babylist</span>';
+        } else {
+          var byName = found.data.name ? " by " + esc(found.data.name) : "";
+          actions =
+            '<button class="btn-claim claimed giver-link">Gifted' + byName + "</button>" +
+            (!found.shared ? '<button class="btn-undo" title="Undo your claim">Undo</button>' : "");
+        }
       } else {
         actions = '<button class="btn-claim">Mark as purchased</button>';
       }
@@ -476,7 +497,8 @@
       if (isGiftCard) {
         // gift cards are never claimed: any amount, no duplicates possible
       } else if (claimed) {
-        card.querySelector(".giver-link").addEventListener("click", function () {
+        var giverLink = card.querySelector(".giver-link");
+        if (giverLink) giverLink.addEventListener("click", function () {
           openDetailsModal(item, found.data, found.shared);
         });
         var undo = card.querySelector(".btn-undo");
@@ -546,6 +568,7 @@
   renderGrowth();
   renderTimeline();
   loadSheetClaims();
+  loadBabylistPurchased();
   tickCountdown();
   setInterval(tickCountdown, 1000);
 })();
