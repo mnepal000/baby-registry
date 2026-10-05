@@ -538,26 +538,87 @@
     render();
   });
 
-  // ---- Name suggestion form: opens the visitor's email app, nothing stored ----
+  // ---- Name suggestion form: Turnstile captcha + backend save ----
+  // Backend not configured yet? Falls back to the old mailto behavior.
   var nameForm = document.getElementById("nameForm");
   if (nameForm) {
+    var rName = window.REGISTRY || {};
+    var nameBackendUrl = rName.nameBackendUrl || "";
+    var tsSiteKey = rName.turnstileSiteKey || "";
+    var backendOn = !!(nameBackendUrl && tsSiteKey);
+    var tsWidgetId = null;
+    var note0 = document.getElementById("nsNote");
+
+    function ensureTurnstile() {
+      var box = document.getElementById("tsWidget");
+      if (!box || tsWidgetId !== null || typeof turnstile === "undefined") return;
+      try { tsWidgetId = turnstile.render(box, { sitekey: tsSiteKey, theme: "light" }); }
+      catch (err) { tsWidgetId = null; }
+    }
+    if (backendOn) {
+      if (document.readyState === "complete") ensureTurnstile();
+      else window.addEventListener("load", ensureTurnstile);
+      setTimeout(ensureTurnstile, 3000); // retry in case the Turnstile script is slow
+    } else {
+      var tw = document.getElementById("tsWidget");
+      if (tw) tw.style.display = "none";
+      if (note0) note0.textContent = "This opens your email app with the suggestion addressed to us. Nothing is posted publicly.";
+    }
+
     nameForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var r = window.REGISTRY || {};
-      var to = r.contactEmail || "hellomuku@gmail.com";
       var sug = document.getElementById("nsName").value.trim();
       var why = document.getElementById("nsWhy").value.trim();
       var from = document.getElementById("nsFrom").value.trim();
       if (!sug) return;
-      var body = "Name suggestion for Dallu: " + sug +
-        (why ? "\nWhy this name: " + why : "") +
-        (from ? "\nSuggested by: " + from : "");
-      window.location.href = "mailto:" + to +
-        "?subject=" + encodeURIComponent("Name suggestion for Dallu") +
-        "&body=" + encodeURIComponent(body);
       var note = document.getElementById("nsNote");
-      if (note) note.textContent = "Thank you! Your email app should have opened with the suggestion ready to send. \uD83D\uDC9B";
-      nameForm.reset();
+      var btn = nameForm.querySelector('button[type="submit"]');
+
+      if (!backendOn) {
+        var to = rName.contactEmail || "hellomuku@gmail.com";
+        var body = "Name suggestion for Dallu: " + sug +
+          (why ? "\nWhy this name: " + why : "") +
+          (from ? "\nSuggested by: " + from : "");
+        window.location.href = "mailto:" + to +
+          "?subject=" + encodeURIComponent("Name suggestion for Dallu") +
+          "&body=" + encodeURIComponent(body);
+        if (note) note.textContent = "Thank you! Your email app should have opened with the suggestion ready to send. \uD83D\uDC9B";
+        nameForm.reset();
+        return;
+      }
+
+      var token = "";
+      try { token = (tsWidgetId !== null) ? turnstile.getResponse(tsWidgetId) : ""; }
+      catch (errTok) { token = ""; }
+      if (!token) {
+        if (note) note.textContent = "Please complete the quick human check above first.";
+        return;
+      }
+
+      btn.disabled = true;
+      var origLabel = btn.textContent;
+      btn.textContent = "Sending\u2026";
+      fetch(nameBackendUrl, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ name: sug, why: why, from: from, turnstileToken: token })
+      }).then(function (resp) { return resp.json(); }).then(function (res) {
+        if (res && res.ok) {
+          if (note) note.textContent = "Thank you! Your suggestion is saved. We cannot wait to read it. \uD83D\uDC9B";
+          nameForm.reset();
+        } else if (res && res.error === "captcha-failed") {
+          if (note) note.textContent = "The human check did not pass. Please try again.";
+        } else {
+          if (note) note.textContent = "Hmm, that did not go through. Please try again in a moment.";
+        }
+        try { turnstile.reset(tsWidgetId); } catch (errR) {}
+      }).catch(function () {
+        if (note) note.textContent = "Something went wrong sending that. Please try again in a moment.";
+        try { turnstile.reset(tsWidgetId); } catch (errR2) {}
+      }).finally(function () {
+        btn.disabled = false;
+        btn.textContent = origLabel;
+      });
     });
   }
 

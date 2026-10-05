@@ -387,3 +387,4 @@ span.btn-claim.claimed { cursor: default; }
 }
 .field input:focus { outline: none; border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(232, 145, 45, 0.18); }
 .form-note { color: var(--ink-soft); font-size: 0.9rem; margin: 14px 0 0; }
+.ts-widget { margin: 16px 0 2px; min-height: 65px; }

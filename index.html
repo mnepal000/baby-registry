@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/img/lotus-mark.png">
 <link rel="apple-touch-icon" href="assets/img/lotus-mark.png">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -192,7 +193,8 @@
           <input type="text" id="nsFrom" maxlength="60" placeholder="Your name" autocomplete="off">
         </label>
         <button class="btn btn-primary" type="submit">Send suggestion 💛</button>
-        <p class="form-note" id="nsNote">This opens your email app with the suggestion addressed to us. Nothing is posted publicly.</p>
+        <div id="tsWidget" class="ts-widget"></div>
+        <p class="form-note" id="nsNote">Protected by a quick human check. Suggestions are saved privately for us, nothing is posted publicly.</p>
       </form>
     </div>
   </section>

@@ -8,6 +8,10 @@ var REGISTRY = {
   dueMonthLabel: "January 2027",
   contactEmail: "hellomuku@gmail.com",
   babylistUrl: "https://my.babylist.com/bini-bhattarai", // Babylist registry; the banner appears automatically
+  // Name-suggestion backend (see backend/name-suggestions.gs). Leave empty to
+  // keep the old mailto fallback; fill both to enable captcha + sheet saving.
+  nameBackendUrl: "",
+  turnstileSiteKey: "",
 };
 
 // Purchase-claim settings. Until these are filled in (see GOOGLE_SHEETS_SETUP.md),
