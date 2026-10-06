@@ -49,9 +49,13 @@ const TITLE_MAP = {
   "giftcard-target": "Bullseye Trio Target GiftCard $100",
   "giftcard-costco": "Costco Shop Card | Costco",
   "drbrowns-set": "Dr. Brown's Options+ Narrow Anti-Colic Baby Bottles + Happy Paci Set (3 Pack) - 4 Oz",
-  "brezza-washer": "Baby Brezza Bottle Washer Pro - Charcoal",
   "giftcard-babylist": "Babylist Shop Gift Card",
 };
+
+// Babylist titles intentionally not on our site: no unmapped warnings for these.
+// (Baby Brezza washer removed from the site on 2026-10-05, duplicate bottle
+// washer; kept the Momcozy KleanPal Pro instead.)
+const IGNORED_TITLES = ["Baby Brezza Bottle Washer Pro - Charcoal"];
 
 const norm = (s) =>
   s.toLowerCase().replace(/[®™|–—]/g, " ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
@@ -96,7 +100,9 @@ for (const [ourId, blTitle] of Object.entries(TITLE_MAP)) {
     warnings.push(`QUANTITY CHANGED for "${item.title}": quantity=${item.quantity} needed=${item.quantity_needed}`);
   }
 }
-const mappedTitles = new Set(Object.values(TITLE_MAP).map(norm));
+const mappedTitles = new Set(
+  [...Object.values(TITLE_MAP), ...IGNORED_TITLES].map(norm)
+);
 for (const i of items) {
   if (!mappedTitles.has(norm(i.title))) {
     warnings.push(`UNMAPPED Babylist item (new?): "${i.title}" reserved=${i.is_reserved}`);

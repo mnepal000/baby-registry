@@ -21,7 +21,7 @@
 // Test: submit the form on the site. A new row should appear in the sheet.
 // If it fails, check Executions in the Apps Script editor for the error.
 
-var TURNSTILE_SECRET = ""; // <-- paste the Turnstile SECRET key here (never the site key)
+var TURNSTILE_SECRET = "0x4AAAAAAFOcAMGV4haWI8Iu"; // <-- paste the Turnstile SECRET key here (never the site key)
 
 function doPost(e) {
   try {

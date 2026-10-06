@@ -470,18 +470,6 @@ var ITEMS = [
     blurb: "A breathable bedside sleeper that keeps Dallu close through the night, right beside our bed.",
   },
   {
-    id: "brezza-washer",
-    name: "Baby Brezza Bottle Washer Pro - Charcoal",
-    brand: "Baby Brezza",
-    category: "Feeding",
-    priority: "nice", // "must" or "nice"
-    price: "$299.99",
-    store: "Babylist",
-    url: "https://www.babylist.com/ggp/baby-brezza-bottle-washer-pro/44961/2200478?reg_item_id=883525167&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
-    img: "assets/img/brezza-washer.jpg",
-    blurb: "Automatically washes, sterilizes, and dries bottles at the push of a button.",
-  },
-  {
     id: "drbrowns-set",
     name: "Dr. Brown's Options+ Narrow Bottles + Happy Paci Set (3-Pack)",
     brand: "Dr. Brown's",
