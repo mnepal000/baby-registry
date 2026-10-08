@@ -49,6 +49,8 @@ const TITLE_MAP = {
   "giftcard-target": "Bullseye Trio Target GiftCard $100",
   "giftcard-costco": "Costco Shop Card | Costco",
   "drbrowns-set": "Dr. Brown's Options+ Narrow Anti-Colic Baby Bottles + Happy Paci Set (3 Pack) - 4 Oz",
+  "burp-cloths": "Burt's Bees Baby Organic Burp Cloth (5 Pack) - Cow",
+  "changing-table": "Delta Children Scout Changing Table - Chestnut",
   "giftcard-babylist": "Babylist Shop Gift Card",
 };
 

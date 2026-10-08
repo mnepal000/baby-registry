@@ -422,6 +422,30 @@ var ITEMS = [
     blurb: "Soothes and protects sore nipples in the early breastfeeding days.",
   },
   {
+    id: "burp-cloths",
+    name: "Burt's Bees Baby Organic Burp Cloth (5 Pack) - Cow",
+    brand: "Burt's Bees Baby",
+    category: "Feeding",
+    priority: "nice", // "must" or "nice"
+    price: "$31.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/burt-s-bees-baby-organic-burp-cloth-5-pack/14442/1861496?reg_item_id=895408461&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/burp-cloths.jpg",
+    blurb: "Five soft organic burp cloths in a sweet cow print, ready for all the little spills.",
+  },
+  {
+    id: "changing-table",
+    name: "Delta Children Scout Changing Table - Chestnut",
+    brand: "Delta Children",
+    category: "Diapering",
+    priority: "nice", // "must" or "nice"
+    price: "$99.99",
+    store: "Babylist",
+    url: "https://www.babylist.com/ggp/delta-children-scout-changing-table/81558/3142539?reg_item_id=895409005&registry_id=15025577&registry_uuid=FC87C487-D435-49DA-B2AA-368E40258CF2",
+    img: "assets/img/changing-table.jpg",
+    blurb: "A sturdy changing table with storage shelves, so diaper duty has a proper home.",
+  },
+  {
     id: "giftcard-amazon",
     name: "Amazon Gift Card",
     brand: null,
