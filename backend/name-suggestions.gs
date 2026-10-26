@@ -3,22 +3,23 @@
 // What it does:
 //  1. Receives { name, why, from, turnstileToken } from the site's name form.
 //  2. Verifies the Turnstile captcha token with Cloudflare, server-side.
-//  3. Appends the suggestion to the "Suggestions" sheet. Nothing is public.
+//  3. Emails the suggestion to hellomuku@gmail.com. Nothing is public.
+//    If this script is bound to a Google Sheet, it also appends a row to
+//    a "Suggestions" sheet, but the sheet is optional: email is the delivery.
 //
 // Setup (one time, ~5 minutes):
-//  1. Create a Google Sheet (e.g. "Dallu name suggestions") in your Google account.
-//  2. Extensions > Apps Script, delete the default code, paste this file.
-//  3. Fill in TURNSTILE_SECRET below (from dash.cloudflare.com > Turnstile).
-//  4. Deploy > New deployment > Web app:
+//  1. Go to script.google.com, create a new project, paste this file.
+//  2. Fill in TURNSTILE_SECRET below (from dash.cloudflare.com > Turnstile).
+//  3. Deploy > New deployment > Web app:
 //       Execute as: Me
 //       Who has access: Anyone
 //     Copy the web app URL.
-//  5. In the registry repo's data.js, set:
+//  4. In the registry repo's data.js, set:
 //       nameBackendUrl: "<the web app URL>",
 //       turnstileSiteKey: "<the Turnstile site key>",
 //     then regenerate data.min.js (see ~/workspace/minify-sites.sh) and push.
 //
-// Test: submit the form on the site. A new row should appear in the sheet.
+// Test: submit the form on the site. The suggestion should arrive by email.
 // If it fails, check Executions in the Apps Script editor for the error.
 
 var TURNSTILE_SECRET = ""; // <-- paste the Turnstile SECRET key here (never the site key)
@@ -35,7 +36,18 @@ function doPost(e) {
     var from = clean(data.from, 60);
     if (!name) return json({ ok: false, error: "name-required" });
 
-    sheetRef().appendRow([new Date(), name, why, from]);
+    MailApp.sendEmail({
+      to: "hellomuku@gmail.com",
+      subject: "Name suggestion for Dallu: " + name,
+      body: "Name suggestion for Dallu: " + name +
+        (why ? "\nWhy this name: " + why : "") +
+        (from ? "\nSuggested by: " + from : "")
+    });
+
+    // Optional: also log to a sheet when this script is bound to one.
+    // A failure here must not lose the email, so it is best-effort only.
+    try { sheetRef().appendRow([new Date(), name, why, from]); } catch (errSheet) {}
+
     return json({ ok: true });
   } catch (err) {
     return json({ ok: false, error: "server-error" });
