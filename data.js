@@ -9,9 +9,9 @@ var REGISTRY = {
   contactEmail: "hellomuku@gmail.com",
   babylistUrl: "https://my.babylist.com/bini-bhattarai", // Babylist registry; the banner appears automatically
   // Name-suggestion backend (see backend/name-suggestions.gs). Leave empty to
-  // keep the old mailto fallback; fill both to enable captcha + sheet saving.
-  nameBackendUrl: "",
-  turnstileSiteKey: "",
+  // keep the old mailto fallback; fill both to enable captcha + email saving.
+  nameBackendUrl: "https://script.google.com/macros/s/AKfycbwoxl52KzsWOIbxkIJ88WuGM3-HXcWjwF2K1-b8Eb30pMW0vG1D6JJuBm_Eo03Xfjidkg/exec",
+  turnstileSiteKey: "0x4AAAAAAFOcAMGV4haWI8Iu",
 };
 
 // Purchase-claim settings. Until these are filled in (see GOOGLE_SHEETS_SETUP.md),
