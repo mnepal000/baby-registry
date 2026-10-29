@@ -388,3 +388,10 @@ span.btn-claim.claimed { cursor: default; }
 .field input:focus { outline: none; border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(232, 145, 45, 0.18); }
 .form-note { color: var(--ink-soft); font-size: 0.9rem; margin: 14px 0 0; }
 .ts-widget { margin: 16px 0 2px; min-height: 65px; }
+/* Radio buttons must stay small circles, not text-field pills: the
+   .field input rules above would otherwise stretch them to full width. */
+.field input[type="radio"] {
+  display: inline-block; width: auto; padding: 0; border: 0;
+  margin: 0 8px 0 0; vertical-align: middle; background: none;
+  box-shadow: none;
+}
