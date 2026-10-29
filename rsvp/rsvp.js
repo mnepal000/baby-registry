@@ -13,6 +13,7 @@
   var btn = form.querySelector('button[type="submit"]');
   var guestsInput = document.getElementById("rsvpGuests");
   var widgetId = null;
+  var redirecting = false;
 
   function ensureTurnstile() {
     var box = document.getElementById("rsvpTsWidget");
@@ -64,9 +65,12 @@
       body: JSON.stringify({ type: "rsvp", name: name, attending: attending, guests: guests, allergies: allergies, message: message, turnstileToken: token })
     }).then(function (resp) { return resp.json(); }).then(function (res) {
       if (res && res.ok) {
-        if (note) note.textContent = "Thank you! Your RSVP is saved. We cannot wait to see you. 💛";
+        if (note) note.textContent = "Thank you! Your RSVP is saved. We cannot wait to see you. 💛 Taking you back to dallu.baby…";
         form.reset();
         if (guestsInput) { guestsInput.disabled = false; guestsInput.value = "1"; }
+        // Show the thank you for 3 seconds, then send them to the homepage.
+        redirecting = true;
+        setTimeout(function () { window.location.href = "../"; }, 3000);
       } else if (res && res.error === "captcha-failed") {
         if (note) note.textContent = "The human check did not pass. Please try again.";
       } else {
@@ -77,8 +81,10 @@
       if (note) note.textContent = "Something went wrong sending that. Please try again in a moment.";
       try { turnstile.reset(widgetId); } catch (errR2) {}
     }).finally(function () {
-      btn.disabled = false;
-      btn.textContent = origLabel;
+      if (!redirecting) {
+        btn.disabled = false;
+        btn.textContent = origLabel;
+      }
     });
   });
 })();
