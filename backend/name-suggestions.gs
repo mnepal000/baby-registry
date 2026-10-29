@@ -32,6 +32,7 @@
 
 var TURNSTILE_SECRET = ""; // <-- paste the Turnstile SECRET key here (never the site key)
 var RSVP_SHEET_ID = ""; // <-- live only: ID of the "Dallu baby shower RSVPs" sheet, filled in by the browser update, not in the public repo
+var NAME_SHEET_ID = ""; // <-- live only: ID of the "Dallu name suggestions" sheet, filled in by the browser update, not in the public repo
 
 function doPost(e) {
   try {
@@ -77,9 +78,9 @@ function doPost(e) {
         (from ? "\nSuggested by: " + from : "")
     });
 
-    // Optional: also log to a sheet when this script is bound to one.
-    // A failure here must not lose the email, so it is best-effort only.
-    try { sheetRef().appendRow([new Date(), name, why, from]); } catch (errSheet) {}
+    // Also log to the dedicated name suggestions sheet, best effort only.
+    // A failure here must not lose the email.
+    try { nameSheetRef().appendRow([new Date(), name, why, from]); } catch (errSheet) {}
 
     return json({ ok: true });
   } catch (err) {
@@ -101,6 +102,20 @@ function verifyTurnstile(token) {
 function sheetRef() {
   // Uses the sheet this script is bound to. First run creates the header row.
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName("Suggestions");
+  if (!sh) {
+    sh = ss.insertSheet("Suggestions");
+    sh.appendRow(["Timestamp", "Name", "Why", "From"]);
+  } else if (sh.getLastRow() === 0) {
+    sh.appendRow(["Timestamp", "Name", "Why", "From"]);
+  }
+  return sh;
+}
+
+function nameSheetRef() {
+  // Open the dedicated name suggestions sheet by ID when set, otherwise
+  // fall back to a bound sheet.
+  var ss = NAME_SHEET_ID ? SpreadsheetApp.openById(NAME_SHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName("Suggestions");
   if (!sh) {
     sh = ss.insertSheet("Suggestions");
