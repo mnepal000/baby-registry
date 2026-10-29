@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby shower RSVP | Dallu</title>
+<meta name="description" content="RSVP for Dallu's baby shower on Sunday, December 6, 2026.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/img/lotus-mark.png">
+<link rel="apple-touch-icon" href="../assets/img/lotus-mark.png">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">☁️ <span>Dallu</span></a>
+    <nav class="site-nav">
+      <a href="../"><span class="nav-ico" aria-hidden="true">🏠</span>Back to dallu.baby</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="names">
+    <div class="wrap narrow">
+      <p class="eyebrow">Baby shower</p>
+      <h2>RSVP for Dallu's baby shower</h2>
+      <p><strong>Sunday, December 6, 2026, from 12:30 pm onwards.</strong></p>
+      <p><strong>Location: Nepal Residence, Beltsville.</strong></p>
+      <p>Please let us know if you can come, so we can plan for food and seating.</p>
+      <form id="rsvpForm">
+        <label class="field">
+          <span class="field-label">Your name <span class="req">*</span></span>
+          <input type="text" id="rsvpName" required maxlength="60" placeholder="Your name" autocomplete="name">
+        </label>
+        <fieldset class="field" style="border:0; padding:0; margin-bottom:16px;">
+          <legend class="field-label">Can you come? <span class="req">*</span></legend>
+          <label style="display:block; font-weight:400; margin:6px 0;"><input type="radio" name="rsvpAttending" value="yes" required> Yes, we will be there</label>
+          <label style="display:block; font-weight:400; margin:6px 0;"><input type="radio" name="rsvpAttending" value="no"> Sorry, we cannot make it</label>
+          <label style="display:block; font-weight:400; margin:6px 0;"><input type="radio" name="rsvpAttending" value="maybe"> Maybe, we will confirm soon</label>
+        </fieldset>
+        <label class="field">
+          <span class="field-label">How many people in total, including you? <span class="opt">(optional)</span></span>
+          <input type="number" id="rsvpGuests" min="1" max="10" value="1" inputmode="numeric">
+        </label>
+        <label class="field">
+          <span class="field-label">Food allergies or preferences <span class="opt">(optional)</span></span>
+          <textarea id="rsvpAllergies" maxlength="200" rows="2" placeholder="For example: vegetarian, nut allergy, no dairy"></textarea>
+        </label>
+        <label class="field">
+          <span class="field-label">Message <span class="opt">(optional)</span></span>
+          <textarea id="rsvpMessage" maxlength="300" rows="3" placeholder="Anything else we should know"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Send RSVP 💛</button>
+        <div id="rsvpTsWidget" class="ts-widget"></div>
+        <p class="form-note" id="rsvpNote">Protected by a quick human check. RSVPs come to us privately, nothing is posted publicly.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Made with love for Dallu, arriving January 2027 💛</p>
+  </div>
+</footer>
+
+<script src="rsvp.min.js?v=1"></script>
+</body>
+</html>
