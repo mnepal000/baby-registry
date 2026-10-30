@@ -25,6 +25,50 @@
   else window.addEventListener("load", ensureTurnstile);
   setTimeout(ensureTurnstile, 3000);
 
+  // Add to calendar: download an .ics file for Apple Calendar, Outlook
+  // desktop, and other calendar apps. Google and Outlook web links are
+  // in the page itself. Event: Sunday, December 6, 2026, 12:30 pm to
+  // 4:00 pm EST, which is 17:30 to 21:00 UTC.
+  var icsBtn = document.getElementById("icsDownload");
+  if (icsBtn) {
+    icsBtn.addEventListener("click", function () {
+      var now = new Date();
+      function stamp(d) {
+        return d.getUTCFullYear() +
+          String(d.getUTCMonth() + 1).padStart(2, "0") +
+          String(d.getUTCDate()).padStart(2, "0") + "T" +
+          String(d.getUTCHours()).padStart(2, "0") +
+          String(d.getUTCMinutes()).padStart(2, "0") +
+          String(d.getUTCSeconds()).padStart(2, "0") + "Z";
+      }
+      var lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Dallu//Baby Shower//EN",
+        "BEGIN:VEVENT",
+        "UID:dallu-baby-shower-20261206@dallu.baby",
+        "DTSTAMP:" + stamp(now),
+        "DTSTART:20261206T173000Z",
+        "DTEND:20261206T210000Z",
+        "SUMMARY:Baby shower for Dallu",
+        "LOCATION:Nepal Residence\\, Beltsville",
+        "DESCRIPTION:Baby shower for Dallu at Nepal Residence\\, Beltsville.",
+        "END:VEVENT",
+        "END:VCALENDAR",
+        ""
+      ];
+      var blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "dallu-baby-shower-2026-12-06.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+
   // If the guest cannot come, the guest count does not apply.
   form.addEventListener("change", function (e) {
     if (e.target && e.target.name === "rsvpAttending") {
@@ -65,12 +109,30 @@
       body: JSON.stringify({ type: "rsvp", name: name, attending: attending, guests: guests, allergies: allergies, message: message, turnstileToken: token })
     }).then(function (resp) { return resp.json(); }).then(function (res) {
       if (res && res.ok) {
-        if (note) note.textContent = "Thank you! Your RSVP is saved. We cannot wait to see you. 💛 Taking you back to dallu.baby…";
-        form.reset();
-        if (guestsInput) { guestsInput.disabled = false; guestsInput.value = "1"; }
-        // Show the thank you for 3 seconds, then send them to the homepage.
         redirecting = true;
-        setTimeout(function () { window.location.href = "../"; }, 3000);
+        if (attending === "yes") {
+          // Yes: show the add to calendar options, then redirect to the
+          // homepage after 15 seconds, so there is time to use them.
+          form.style.display = "none";
+          var panel = document.getElementById("calendarPanel");
+          if (panel) panel.style.display = "block";
+          var countdownEl = document.getElementById("calCountdown");
+          var secondsLeft = 15;
+          var timer = setInterval(function () {
+            secondsLeft -= 1;
+            if (countdownEl) countdownEl.textContent = secondsLeft;
+            if (secondsLeft <= 0) {
+              clearInterval(timer);
+              window.location.href = "../";
+            }
+          }, 1000);
+        } else {
+          // No or maybe: no calendar needed, thank them and redirect soon.
+          if (note) note.textContent = "Thank you! Your RSVP is saved. Taking you back to dallu.baby…";
+          form.reset();
+          if (guestsInput) { guestsInput.disabled = false; guestsInput.value = "1"; }
+          setTimeout(function () { window.location.href = "../"; }, 3000);
+        }
       } else if (res && res.error === "captcha-failed") {
         if (note) note.textContent = "The human check did not pass. Please try again.";
       } else {

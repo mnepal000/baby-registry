@@ -29,7 +29,7 @@
     <div class="wrap narrow">
       <p class="eyebrow">Baby shower</p>
       <h2>RSVP for Dallu's baby shower</h2>
-      <p><strong>Sunday, December 6, 2026, from 12:30 pm onwards.</strong></p>
+      <p><strong>Sunday, December 6, 2026, 12:30 pm to 4:00 pm.</strong></p>
       <p><strong>Location: Nepal Residence, Beltsville.</strong></p>
       <p>Please let us know if you can come, so we can plan for food and seating.</p>
       <form id="rsvpForm">
@@ -59,6 +59,19 @@
         <div id="rsvpTsWidget" class="ts-widget"></div>
         <p class="form-note" id="rsvpNote">Protected by a quick human check. RSVPs come to us privately, nothing is posted publicly.</p>
       </form>
+      <div id="calendarPanel" style="display:none;">
+        <h3>Thank you! Your RSVP is saved. We cannot wait to see you. 💛</h3>
+        <p>Add the baby shower to your calendar:</p>
+        <p><strong>Sunday, December 6, 2026, 12:30 pm to 4:00 pm, Nepal Residence, Beltsville.</strong></p>
+        <p>
+          <a class="btn btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Baby%20shower%20for%20Dallu&amp;dates=20261206T173000Z%2F20261206T210000Z&amp;details=Baby%20shower%20for%20Dallu%20at%20Nepal%20Residence%2C%20Beltsville.&amp;location=Nepal%20Residence%2C%20Beltsville" target="_blank" rel="noopener">Add to Google Calendar</a>
+        </p>
+        <p>
+          <a class="btn btn-ghost" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Baby%20shower%20for%20Dallu&amp;startdt=2026-12-06T17%3A30%3A00Z&amp;enddt=2026-12-06T21%3A00%3A00Z&amp;body=Baby%20shower%20for%20Dallu%20at%20Nepal%20Residence%2C%20Beltsville.&amp;location=Nepal%20Residence%2C%20Beltsville" target="_blank" rel="noopener">Add to Outlook</a>
+          <button class="btn btn-ghost" type="button" id="icsDownload">Download .ics (Apple Calendar and others)</button>
+        </p>
+        <p class="form-note">Taking you back to dallu.baby in <span id="calCountdown">15</span> seconds, or <a href="../">go to the homepage now</a>.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -69,6 +82,6 @@
   </div>
 </footer>
 
-<script src="rsvp.min.js?v=2"></script>
+<script src="rsvp.min.js?v=3"></script>
 </body>
 </html>
